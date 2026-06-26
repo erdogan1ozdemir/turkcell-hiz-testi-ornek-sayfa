@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hız Testi, Speed Test, İnternet Hız Testi - Turkcell (Tasarım Örneği)</title>
+<meta name="description" content="Turkcell hız testi sayfası için CRO/dönüşüm tasarım örneği · 4 varyant.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Turkcell Hız Testi · Tasarım Örneği (tek dosya, self-contained)
+   Klon kabuk hedef sayfaya sadık: navy #001043, mavi kart #1C37CA,
+   Turkcell sarısı #FFC40C, GreycliffCF (fallback Outfit).
+   Tüm CSS/JS/logo inline → her host'ta (Vercel/Railway) bozulmaz.
+   ============================================================ */
+:root{
+  --yellow:#FFC40C; --yellow-2:#FFD24A; --yellow-deep:#E0A800;
+  --navy:#001043; --navy-2:#001151; --navy-3:#001588; --navy-card:#0a1a5e;
+  --blue:#1C37CA; --blue-2:#2845e0;
+  --ink:#ffffff; --ink-2:#b9c2e6; --ink-3:#8a93c4;
+  --line:rgba(255,255,255,.12); --line-2:rgba(255,255,255,.06);
+  --green:#39d98a; --r:14px; --r-lg:20px; --r-pill:100px; --maxw:1180px;
+  --font:'GreycliffCF','Outfit',system-ui,'Segoe UI',Arial,sans-serif;
+  --shadow:0 14px 40px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--navy);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+h1,h2,h3{font-weight:800;line-height:1.12}
+.eyebrow{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:var(--font);font-weight:800;border-radius:var(--r-pill);transition:.18s;text-decoration:none;line-height:1}
+.btn-y{background:var(--yellow);color:#1a1a1a;padding:13px 22px;box-shadow:0 8px 22px rgba(255,196,12,.32)}
+.btn-y:hover{background:var(--yellow-2);transform:translateY(-2px)}
+.btn-w{background:#fff;color:#2f2f2f;padding:12px 20px}
+.btn-w:hover{transform:translateY(-2px)}
+.btn-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45);padding:11px 18px}
+.btn-o:hover{border-color:var(--yellow);color:var(--yellow)}
+.btn-lg{padding:15px 28px;font-size:1.04rem}.btn-sm{padding:9px 15px;font-size:.84rem}
+
+/* ---- header (klon: minimal, sadece logo) ---- */
+header.site{position:sticky;top:0;z-index:50;background:rgba(0,16,67,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:var(--maxw);margin:0 auto;padding:12px 18px;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.18rem;letter-spacing:-.01em}
+.brand svg{width:38px;height:38px;flex:none}
+.brand .dot{width:34px;height:34px;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:1.1rem;flex:none}
+.nav .right{margin-left:auto;display:flex;gap:10px;align-items:center}
+.nav .right .x{font-size:.86rem;color:var(--ink-2)}
+@media(max-width:640px){.nav .right .x{display:none}}
+
+/* breadcrumb */
+.crumb{max-width:var(--maxw);margin:0 auto;padding:12px 18px 0;font-size:.8rem;color:var(--ink-3)}
+.crumb a:hover{color:var(--yellow)}
+
+/* ---- hero ---- */
+.hero{padding:24px 0 6px}
+.hero .grid{display:grid;grid-template-columns:1.15fr .95fr;gap:28px;align-items:center}
+.hero h1{font-size:2.1rem;margin-bottom:10px}
+.hero h1 .y{color:var(--yellow)}
+.hero .sub{color:var(--ink-2);max-width:46ch;font-size:1.04rem}
+.tips{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.tip{display:flex;align-items:center;gap:8px;background:var(--navy-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:7px 13px;font-size:.8rem;color:var(--ink-2)}
+.tip .i{width:18px;height:18px;border-radius:50%;background:var(--yellow);color:var(--navy);display:grid;place-items:center;font-size:.7rem;font-weight:800;flex:none}
+
+/* gauge / GO widget */
+.gauge-card{background:radial-gradient(120% 120% at 50% 0%,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;text-align:center;position:relative;overflow:hidden}
+.gauge{width:220px;height:220px;margin:4px auto 14px;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(var(--yellow) var(--deg,0deg),rgba(255,255,255,.07) 0)}
+.gauge::before{content:"";position:absolute;inset:13px;border-radius:50%;background:var(--navy-2);border:1px solid var(--line)}
+.go{position:relative;z-index:2;width:116px;height:116px;border-radius:50%;border:none;cursor:pointer;background:radial-gradient(circle at 35% 30%,var(--yellow-2),var(--yellow) 60%,var(--yellow-deep));color:#1a1a1a;font-weight:800;font-size:1.7rem;box-shadow:0 10px 30px rgba(255,196,12,.45)}
+.go:hover{transform:scale(1.04)}
+.go.testing{font-size:1rem;animation:pulse 1s infinite}
+@keyframes pulse{50%{box-shadow:0 10px 46px rgba(255,196,12,.75)}}
+.metrics{display:flex;justify-content:center;gap:24px}
+.metric .v{font-weight:800;font-size:1.5rem;color:#fff}
+.metric .l{font-size:.66rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.07em}
+.server{margin-top:13px;font-size:.82rem;color:var(--ink-2)}.server b{color:var(--yellow)}
+.disc{font-size:.71rem;color:var(--ink-3);margin:9px auto 0;max-width:42ch}
+@media(max-width:820px){.hero .grid{grid-template-columns:1fr}.hero h1{font-size:1.7rem}}
+
+/* sections */
+section.blk{padding:30px 0}
+.blk h2{font-size:1.5rem;margin-bottom:6px}.blk h2 .y{color:var(--yellow)}
+.blk .desc{color:var(--ink-2);max-width:62ch;margin-bottom:16px}
+
+/* result panel (CRO çekirdeği) */
+#resultPanel{display:none;margin-top:16px}
+#resultPanel.show{display:block;animation:rise .4s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+.result-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.result-head .badge{background:var(--green);color:#04211a;font-weight:800;border-radius:var(--r-pill);padding:5px 12px;font-size:.82rem}
+
+/* Temiz çerçeve + yumuşak gölge (parantez/conic-arc süsleme YOK) */
+.smart{background:linear-gradient(135deg,var(--navy-3),var(--navy-card));border:1px solid rgba(255,196,12,.4);border-radius:var(--r-lg);padding:22px;position:relative;box-shadow:0 14px 38px rgba(0,0,0,.4),0 0 0 1px rgba(255,196,12,.12)}
+@media(prefers-reduced-motion:reduce){.go.testing{animation:none}}
+.smart>*{position:relative;z-index:1}
+.smart .reco{font-size:1.3rem;font-weight:800;margin:4px 0 8px}.smart .reco b{color:var(--yellow)}
+
+.pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+.pkg{background:var(--navy-2);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;transition:.18s}
+.pkg:hover{transform:translateY(-3px);border-color:var(--yellow);box-shadow:var(--shadow)}
+.pkg.best{border-color:var(--yellow);box-shadow:0 0 0 2px rgba(255,196,12,.3)}
+.pkg .tag{align-self:flex-start;background:var(--yellow);color:#1a1a1a;font-weight:800;font-size:.66rem;padding:3px 9px;border-radius:var(--r-pill);margin-bottom:8px}
+.pkg .tag.alt{background:var(--blue);color:#fff}
+.pkg .name{font-weight:800;font-size:1.1rem}
+.pkg .spd{color:var(--yellow);font-weight:800;font-size:1.55rem;margin:4px 0}
+.pkg .price{font-size:1.05rem;font-weight:700}.pkg .price s{color:var(--ink-3);font-size:.82rem;font-weight:400}
+.pkg ul{list-style:none;margin:10px 0;font-size:.83rem;color:var(--ink-2)}
+.pkg ul li{padding:3px 0 3px 20px;position:relative}.pkg ul li::before{content:"✓";position:absolute;left:0;color:var(--green)}
+.pkg .btn{margin-top:auto;justify-content:center}
+@media(max-width:820px){.pkgs{grid-template-columns:1fr}}
+
+.compare{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;background:var(--navy-2);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-top:8px}
+.compare .col{text-align:center}.compare .col .big{font-weight:800;font-size:2rem}
+.compare .now .big{color:var(--ink-2)}.compare .tc .big{color:var(--yellow)}
+.compare .vs{color:var(--ink-3);font-weight:800}.compare .col .lbl{font-size:.78rem;color:var(--ink-3)}
+@media(max-width:560px){.compare{grid-template-columns:1fr}.compare .vs{display:none}}
+
+.lead{background:linear-gradient(135deg,var(--navy-3),var(--navy-card));border:1px solid var(--line);border-radius:var(--r-lg);padding:22px}
+.lead .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.lead input{flex:1;min-width:170px;background:var(--navy);border:1px solid var(--line);border-radius:var(--r-pill);padding:12px 16px;color:#fff;font-family:var(--font);font-size:.95rem}
+.lead input:focus{outline:none;border-color:var(--yellow)}
+.lead .note{font-size:.73rem;color:var(--ink-3);margin-top:8px}.lead .note b{color:var(--yellow)}
+
+/* hız-ihtiyaç tablosu */
+.tbl{width:100%;border-collapse:collapse;font-size:.88rem;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.tbl th{background:var(--blue);text-align:left;padding:11px 13px;color:#fff;font-weight:700}
+.tbl td{padding:10px 13px;border-top:1px solid var(--line-2);color:var(--ink-2)}
+.tbl tr:hover td{background:var(--navy-2)}.tbl a{color:var(--yellow)}.tbl a:hover{text-decoration:underline}
+.table-scroll{overflow-x:auto}
+
+/* mavi kart grid (klon: 'Turkcell'de Neler Var?') */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.qcard{background:var(--blue);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-lg);padding:16px;text-align:center;transition:.18s;color:#fff}
+.qcard:hover{transform:translateY(-3px);background:var(--blue-2);box-shadow:var(--shadow)}
+.qcard .ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.16);display:grid;place-items:center;margin:0 auto 9px;font-size:1.2rem}
+.qcard .t{font-weight:700;font-size:.92rem}.qcard .s{font-size:.73rem;color:rgba(255,255,255,.7)}
+
+/* Superbox 5G banner (klon) */
+.banner{background:linear-gradient(120deg,var(--blue),#0a1f9e);border-radius:var(--r-lg);padding:24px;display:grid;grid-template-columns:1.4fr auto;gap:18px;align-items:center}
+.banner h3{font-size:1.5rem}.banner .y{color:var(--yellow)}
+@media(max-width:680px){.banner{grid-template-columns:1fr}}
+
+/* 5G/mobil */
+.fiveg{background:linear-gradient(120deg,var(--navy-3),#241a8f);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:center}
+.fiveg h3{font-size:1.4rem}.fiveg .b5{display:inline-block;background:var(--yellow);color:#1a1a1a;font-weight:800;padding:3px 10px;border-radius:var(--r-pill);font-size:.72rem;margin-bottom:8px}
+.fiveg ul{list-style:none;font-size:.9rem;color:var(--ink-2)}
+.fiveg ul li{padding:4px 0 4px 22px;position:relative}.fiveg ul li::before{content:"⚡";position:absolute;left:0}
+@media(max-width:820px){.fiveg{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.faq details{border-top:1px solid var(--line-2)}.faq details:first-child{border-top:none}
+.faq summary{padding:14px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--yellow);font-weight:800;font-size:1.3rem}
+.faq details[open] summary::after{content:"–"}
+.faq .ans{padding:0 16px 14px;color:var(--ink-2);font-size:.9rem}
+.faq summary:hover{background:var(--navy-2)}
+
+/* footer (klon: minimal + Bizi Takip Edin) */
+footer.site{background:var(--navy-2);border-top:1px solid var(--line);margin-top:22px;padding:26px 0 22px}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.social{display:flex;gap:10px}
+.social a{width:38px;height:38px;border-radius:50%;background:var(--navy);border:1px solid var(--line);display:grid;place-items:center;font-weight:800;color:var(--ink-2);transition:.15s;font-size:.8rem}
+.social a:hover{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
+.fbar{border-top:1px solid var(--line-2);margin-top:16px;padding-top:14px;font-size:.78rem;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+.note-banner{background:rgba(255,196,12,.1);border:1px dashed var(--yellow-deep);color:var(--ink);border-radius:var(--r);padding:10px 14px;font-size:.82rem;margin:14px 0}
+.note-banner b{color:var(--yellow)}
+
+/* ---- yüzen varyant seçici ---- */
+.vpick{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:80;background:rgba(0,16,67,.95);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:12px 10px;box-shadow:var(--shadow);width:160px}
+.vpick .h{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);text-align:center;margin-bottom:8px;font-weight:800}
+.vbtn{display:block;width:100%;text-align:left;background:var(--navy-2);border:1px solid var(--line);color:var(--ink-2);border-radius:11px;padding:9px 11px;margin:6px 0;cursor:pointer;font-family:var(--font);font-weight:700;font-size:.8rem;transition:.15s}
+.vbtn .k{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:6px;background:var(--navy-3);color:var(--yellow);font-weight:800;font-size:.72rem;margin-right:7px}
+.vbtn small{display:block;font-weight:400;font-size:.67rem;color:var(--ink-3);margin-top:2px;margin-left:27px}
+.vbtn:hover{border-color:var(--yellow)}
+.vbtn.active{background:var(--yellow);color:#1a1a1a;border-color:var(--yellow)}
+.vbtn.active .k{background:var(--navy);color:var(--yellow)}.vbtn.active small{color:#3a2f00}
+.vpick .hint{font-size:.61rem;color:var(--ink-3);text-align:center;margin-top:6px}
+@media(max-width:980px){.vpick{top:auto;bottom:10px;right:10px;left:10px;transform:none;display:flex;gap:6px;width:auto;padding:8px;overflow-x:auto}.vpick .h,.vpick .hint{display:none}.vbtn{margin:0;padding:8px 10px;flex:1;min-width:74px;white-space:nowrap}.vbtn small{display:none}.vbtn .k{margin:0}}
+
+/* varyant görünürlüğü */
+[data-only]{display:none}
+body[data-variant="a"] [data-only~="a"],body[data-variant="b"] [data-only~="b"],
+body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{display:block}
+</style>
+</head>
+<body data-variant="a">
+
+<!-- ====== KLON KABUK: HEADER (minimal, sadece logo · gerçek LP böyle) ====== -->
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="#" aria-label="Turkcell">
+      <svg viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M54.375 13.7978C52.1808 10.3885 49.5239 7.59619 46.4168 5.42721C43.3097 3.25824 39.7556 1.70941 35.7702 0.790195C29.2287 -0.723998 22.8665 -0.0408797 16.7311 2.66326C13.3407 4.15857 10.3406 6.22051 7.75924 8.83966C4.53253 12.1167 2.203 15.8251 0.783246 19.9679C0.770654 20.0056 0.758062 20.0434 0.74547 20.0812C0.695102 20.226 0.65103 20.374 0.60381 20.5219C-0.853719 25.31 0.509369 27.9575 2.65002 25.7413C2.73501 25.6437 2.82001 25.5524 2.905 25.458C2.93649 25.4202 2.96797 25.3856 3.00259 25.3447C5.50526 22.2439 9.49064 19.6562 9.49064 19.6562C10.5043 18.9605 11.5589 18.312 12.6544 17.7045C13.9073 16.9804 15.2169 16.3193 16.4383 15.8723C16.4383 15.8723 17.5747 15.3623 17.8769 13.8041C17.8832 13.7757 17.8895 13.7474 17.8927 13.7191C17.8927 13.7033 17.899 13.6907 17.9021 13.675C18.1067 12.3812 19.5139 8.82077 23.4993 8.58467C24.749 8.41468 25.9862 8.63504 27.0786 9.14816C28.9989 10.0485 30.4753 11.8492 30.7743 14.0244C31.0104 15.7527 30.5949 17.3802 29.6977 18.6677C29.6505 18.7401 29.5938 18.8157 29.534 18.8913C29.5151 18.9133 29.4994 18.9385 29.4805 18.9605C28.7313 19.9144 27.7082 20.651 26.4867 21.0665C25.7533 21.3341 25.0103 21.4695 24.2989 21.4884H24.2957C23.8487 21.545 23.3513 21.4884 22.8539 21.3687C22.2936 21.2554 21.7773 21.0697 21.3366 20.8241C20.5685 20.4684 19.942 20.0686 19.7122 19.8608C19.5296 19.694 19.3345 19.6059 19.1456 19.5618C18.7238 19.4925 18.3806 19.5712 18.1288 19.6783H18.1225C17.984 19.7412 17.8738 19.8105 17.7982 19.8671C16.8444 20.651 15.9378 21.4726 15.0752 22.332C12.8149 24.671 10.9167 27.3311 10.029 28.6438C9.55675 29.3867 9.10973 30.1485 8.6879 30.9324C8.29755 31.6564 7.93238 32.3931 7.59554 33.1329C7.06667 34.3071 6.56929 35.5694 6.12227 36.9231C6.10338 36.986 6.08135 37.0458 6.06246 37.1088C6.03413 37.1938 6.00894 37.2819 5.98061 37.3669C5.95543 37.4519 5.93024 37.5369 5.90506 37.6219C3.16314 46.8739 8.09922 52.2161 12.2357 46.6347C12.4624 46.2821 12.6922 45.9295 12.9283 45.5832L12.9346 45.5738C17.2694 38.1823 26.1594 32.8495 26.1594 32.8495H26.1625C26.7071 32.5064 27.258 32.179 27.8121 31.8642C27.8121 31.8642 27.8498 31.839 27.9159 31.8044C29.4396 30.945 31.0073 30.1737 32.6191 29.5C34.0514 28.8704 35.5782 28.2849 36.8406 27.9796C36.8406 27.9796 38.3233 27.5986 38.7199 25.8043C39.0064 24.5136 39.9508 22.6311 42.0914 21.6174C42.5951 21.3624 43.1208 21.1736 43.6528 21.0571C44.2289 20.9312 44.8019 20.8871 45.3622 20.9123H45.3654C45.7305 20.906 46.0359 20.9469 46.2972 21.0225C49.0139 21.5387 51.2396 23.736 51.5638 26.6291C51.9542 30.1391 49.4798 33.3091 45.9383 33.7467C44.1723 33.9639 42.5731 33.5862 41.21 32.5662C39.6801 31.9366 38.5027 32.3396 38.0809 32.5379C36.7461 33.2556 35.4649 34.0521 34.2403 34.9241C31.9611 36.5925 30.1479 38.3334 29.4301 39.0511C27.8561 40.6597 26.4616 42.3691 25.2527 44.1761C25.1898 44.2737 25.1237 44.3712 25.0607 44.4751C25.045 44.5003 25.0261 44.5286 25.0103 44.5538C23.7669 46.5087 22.4416 49.0114 21.3492 52.0398C21.2673 52.2759 21.1855 52.5089 21.1068 52.7481C19.942 56.6327 22.4667 58.1816 25.3912 58.7419C25.3912 58.7419 27.683 59.1763 30.979 58.9402C31.171 58.9245 31.3441 58.9088 31.4921 58.893C32.3263 58.7923 33.1605 58.7041 33.9853 58.5656C39.6769 57.6118 44.7074 55.2697 49.0013 51.4669C54.4096 46.6787 57.6678 40.7101 58.6783 33.6239C59.692 26.5252 58.2691 19.8703 54.3718 13.8104L54.375 13.7978Z" fill="#FFC40C"/></svg>
+      Turkcell
+    </a>
+    <div class="right">
+      <span class="x">turkcell.com.tr</span>
+      <a class="btn btn-y btn-sm" href="#">Online İşlemler</a>
+    </div>
+  </div>
+</header>
+<div class="crumb"><a href="#">Anasayfa</a> › <a href="#">İnternet</a> › <span style="color:var(--yellow)">Hız Testi</span></div>
+
+<!-- ====== HERO + TEST WIDGET ====== -->
+<section class="hero"><div class="wrap grid">
+  <div>
+    <div class="eyebrow">İnternet Hız Testi · Speed Test</div>
+    <h1>İnternet hızını <span class="y">saniyeler içinde</span> ölç</h1>
+    <p class="sub">Download, upload, ping ve jitter değerlerini Turkcell sunucusuyla en doğru şekilde ölç. Sonucuna göre sana en uygun hızı birlikte bulalım.</p>
+    <div class="tips">
+      <span class="tip"><span class="i">1</span> Diğer cihazları kes</span>
+      <span class="tip"><span class="i">2</span> Ethernet kullan</span>
+      <span class="tip"><span class="i">3</span> İndirmeleri durdur</span>
+    </div>
+    <div data-only="d" style="margin-top:18px"><a class="btn btn-y btn-lg" href="#lead">Adresimde hangi hız var? Sorgula →</a></div>
+  </div>
+  <div class="gauge-card">
+    <div class="gauge" id="gauge"><button class="go" id="goBtn">GO</button></div>
+    <div class="metrics">
+      <div class="metric"><div class="v" id="mDown">–</div><div class="l">Download Mbps</div></div>
+      <div class="metric"><div class="v" id="mUp">–</div><div class="l">Upload Mbps</div></div>
+      <div class="metric"><div class="v" id="mPing">–</div><div class="l">Ping ms</div></div>
+    </div>
+    <div class="server">Sunucu: <b>Turkcell İstanbul</b> · değiştir</div>
+    <div class="disc">Sonuçlar Ookla altyapısı ile ölçülür. Mobil ağda test, internet paketinizden veri tüketir.</div>
+  </div>
+</div></section>
+
+<!-- ====== RESULT PANEL (varyanta göre) ====== -->
+<section class="blk" style="padding-top:6px"><div class="wrap">
+  <div id="resultPanel">
+    <div class="result-head">
+      <span class="badge">✓ Test tamamlandı</span>
+      <span style="color:var(--ink-2)">Ölçülen hız: <b id="rSpeed" style="color:#fff">–</b> Mbps · Ping <b id="rPing" style="color:#fff">–</b> ms</span>
+    </div>
+
+    <!-- A · AKILLI SONUÇ -->
+    <div data-only="a"><div class="smart">
+      <div class="eyebrow">Sana özel öneri</div>
+      <div class="reco">Hızın <b id="recoSpeed">48</b> Mbps. <span id="recoMsg">4K yayın ve online oyun için <b>Turkcell Fiber 100</b> seni rahatlatır.</span></div>
+      <p style="color:var(--ink-2);font-size:.9rem" id="recoSub">Mevcut hızın yoğun saatlerde kalabalık bir evde zorlanabilir. Daha yüksek ve kararlı hız için aşağıdaki paket öneriliyor.</p>
+      <div class="pkgs">
+        <div class="pkg best"><span class="tag">SANA ÖNERİLEN</span><div class="name">Fiber 100</div><div class="spd">100 Mbps</div><div class="price">799 TL<span style="font-size:.8rem">/ay</span></div><ul><li>Wi-Fi 6 modem dahil</li><li>12 ay fiyat garantisi</li><li>Ücretsiz kurulum</li></ul><a class="btn btn-y" href="#">Hemen Başvur</a></div>
+        <div class="pkg"><span class="tag alt">EN HIZLI</span><div class="name">Fiber 1000</div><div class="spd">1000 Mbps</div><div class="price">1.149 TL<span style="font-size:.8rem">/ay</span></div><ul><li>Eşit download/upload</li><li>Oyuncu &amp; yayıncı için</li><li>Wi-Fi 6 modem</li></ul><a class="btn btn-o" href="#">İncele</a></div>
+        <div class="pkg"><span class="tag alt">MOBİL</span><div class="name">Superbox 5G</div><div class="spd">5G hız</div><div class="price">Kurulumsuz</div><ul><li>Taşınabilir internet</li><li>Altyapı beklemeden</li><li>Hemen kullan</li></ul><a class="btn btn-o" href="#">İncele</a></div>
+      </div>
+      <div class="note-banner"><b>Önerinin kalbi:</b> Bu modül ölçülen hıza göre değişir (rakiplerde YOK). Düşük hızda fiber/upgrade, yüksek hızda "5G ile mobilde de bu hız" mesajı gösterir. <b>+★</b></div>
+    </div></div>
+
+    <!-- B · SADE HIZ -->
+    <div data-only="b"><div class="smart" style="text-align:center">
+      <div class="reco" style="font-size:1.7rem">Hızın <b id="recoSpeedB">48</b> Mbps</div>
+      <p style="color:var(--ink-2)">Bağlantın çalışıyor. Daha hızlısını ister misin?</p>
+      <a class="btn btn-y btn-lg" href="#" style="margin-top:12px">Altyapımı sorgula, hızımı yükselt →</a>
+    </div></div>
+
+    <!-- C · DEĞER/PAKET -->
+    <div data-only="c">
+      <div class="eyebrow">Hızını Turkcell ile karşılaştır</div>
+      <div class="compare">
+        <div class="col now"><div class="big" id="cNow">48</div><div class="lbl">Şu anki hızın (Mbps)</div></div>
+        <div class="vs">vs</div>
+        <div class="col tc"><div class="big">1000</div><div class="lbl">Turkcell Fiber 1000 (Mbps)</div></div>
+      </div>
+      <p style="text-align:center;color:var(--yellow);font-weight:800;margin:12px 0" id="cMsg">Turkcell ile ~21 kat daha hızlı internet mümkün.</p>
+      <div class="pkgs">
+        <div class="pkg"><div class="name">Fiber 200</div><div class="spd">200 Mbps</div><div class="price"><s>949 TL</s> 799 TL<span style="font-size:.8rem">/ay</span></div><ul><li>~%16 indirimli</li><li>Wi-Fi 6 modem</li></ul><a class="btn btn-o" href="#">Başvur</a></div>
+        <div class="pkg best"><span class="tag">EN ÇOK TERCİH</span><div class="name">Fiber 1000</div><div class="spd">1000 Mbps</div><div class="price">1.149 TL<span style="font-size:.8rem">/ay</span></div><ul><li>Eşit up/down</li><li>12 ay fiyat garantisi</li><li>Ücretsiz kurulum</li></ul><a class="btn btn-y" href="#">Hemen Başvur</a></div>
+        <div class="pkg"><div class="name">Superbox 5G</div><div class="spd">5G</div><div class="price">Kurulumsuz</div><ul><li>Altyapı beklemeden</li><li>Taşınabilir</li></ul><a class="btn btn-o" href="#">İncele</a></div>
+      </div>
+    </div>
+
+    <!-- D · LEAD/ALTYAPI -->
+    <div data-only="d" id="lead"><div class="lead">
+      <div class="eyebrow">Sana en uygun hızı bulalım</div>
+      <div class="reco" style="font-weight:800;font-size:1.3rem;margin:6px 0">Hızın <b style="color:var(--yellow)" id="recoSpeedD">48</b> Mbps · adresinde daha hızlısı olabilir.</div>
+      <p style="color:var(--ink-2);font-size:.9rem">Numaranı bırak, altyapına uygun en yüksek hızı ve sana özel kampanyayı arayıp ücretsiz paylaşalım.</p>
+      <div class="row">
+        <input type="text" placeholder="Adın Soyadın" aria-label="Ad Soyad">
+        <input type="tel" placeholder="Telefon numaran" aria-label="Telefon">
+        <button class="btn btn-y" type="button" onclick="alert('Demo: lead formu · gerçekte Turkcell CRM/başvuruya bağlanır.')">Seni Arayalım</button>
+      </div>
+      <div class="row" style="margin-top:6px">
+        <input type="text" placeholder="Adres / il-ilçe ile altyapı sorgula" aria-label="Adres" style="flex:2">
+        <button class="btn btn-w" type="button" onclick="alert('Demo: altyapı sorgulama · turkcell.com.tr/ev-interneti/superbox-basvuru-ve-altyapi-sorgulama')">Altyapımı Sorgula</button>
+      </div>
+      <div class="note">KVKK kapsamında bilgilerin yalnızca teklif için kullanılır. <b>Tekrarlı lead akışı</b> (hero + sonuç + sayfa sonu) · TurkNet modelinden uyarlandı. Yeni</div>
+    </div></div>
+  </div>
+
+  <p class="note-banner" id="preHint">▲ Yukarıdaki <b>GO</b> butonuna bas · test bitince bu alanda seçili varyantın dönüşüm modülü canlanır. Sağdaki/alttaki seçiciden 4 varyantı dene.</p>
+</div></section>
+
+<!-- ====== HIZ-İHTİYAÇ TABLOSU (öneri) ====== -->
+<section class="blk"><div class="wrap">
+  <div class="eyebrow">Yeni öneri</div>
+  <h2>Hangi hız <span class="y">hangi kullanıma</span> yeter?</h2>
+  <p class="desc">Her satır ilgili Turkcell pakete bağlanır; bilgilendirici içerik doğrudan dönüşüm yoluna döner.</p>
+  <div class="table-scroll"><table class="tbl">
+    <thead><tr><th>Hız</th><th>İdeal kullanım</th><th>10 GB indirme</th><th>Paket</th></tr></thead>
+    <tbody>
+      <tr><td>16–24 Mbps</td><td>E-posta, web, bankacılık</td><td>~1 saat</td><td><a href="#">Fiber'e geç →</a></td></tr>
+      <tr><td>35–50 Mbps</td><td>Full HD yayın, video görüşme</td><td>~27 dk</td><td><a href="#">Fiber 50 →</a></td></tr>
+      <tr><td>100 Mbps</td><td>4K yayın + online oyun, çok cihaz</td><td>~13 dk</td><td><a href="#">Fiber 100 →</a></td></tr>
+      <tr><td>1000 Mbps</td><td>Yayıncılık, beklemesiz indirme, kalabalık ev</td><td>~1,5 dk</td><td><a href="#">Fiber 1000 →</a></td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<!-- ====== SUPERBOX 5G BANNER (klon) ====== -->
+<section class="blk"><div class="wrap"><div class="banner">
+  <div><h3>Fiber hızında, Turkcell gücünde <span class="y">Superbox 5G!</span></h3><p style="color:rgba(255,255,255,.85);margin-top:6px">Altyapı beklemeden, kurulumsuz, taşınabilir yeni nesil ev interneti.</p></div>
+  <a class="btn btn-y btn-lg" href="#">Kampanyaları Keşfet</a>
+</div></div></section>
+
+<!-- ====== 5G/MOBİL (öneri +★) ====== -->
+<section class="blk"><div class="wrap"><div class="fiveg">
+  <div>
+    <span class="b5">5G · MOBİL</span>
+    <h3>Mobil ve 5G hız testi</h3>
+    <p style="color:var(--ink-2)">Aramaların %76–96'sı mobil. Turkcell 5G ile gecikme milisaniyelere iner, indirme kat kat hızlanır. Mobil testte en doğru sonuç için Turkcell sunucusunu seç.</p>
+    <a class="btn btn-y" href="#" style="margin-top:10px">Turkcell 5G'yi Keşfet →</a>
+  </div>
+  <ul>
+    <li>5G ortalama hız: mevcut mobilin kat kat üzeri</li>
+    <li>Ping &lt; 10 ms: oyun ve canlı yayında kesintisiz</li>
+    <li>Superbox 5G: altyapı beklemeden</li>
+    <li>5G her yerde aynı mı? Kapsama + cihaza bağlı</li>
+  </ul>
+</div></div></section>
+
+<!-- ====== MAVİ KART GRID (klon: Turkcell'de Neler Var?) ====== -->
+<section class="blk"><div class="wrap">
+  <h2>Turkcell'de neler var?</h2>
+  <p class="desc">Tüm araç ve linkler Turkcell içinde (on-domain) · equity Turkcell'de kalır.</p>
+  <div class="cards">
+    <a class="qcard" href="#"><div class="ic">📶</div><div class="t">Altyapı Sorgulama</div><div class="s">turkcell.com.tr</div></a>
+    <a class="qcard" href="#"><div class="ic">📍</div><div class="t">Ping Testi</div><div class="s">on-domain · KD 1</div></a>
+    <a class="qcard" href="#"><div class="ic">🌐</div><div class="t">IP Sorgulama</div><div class="s">yeni araç</div></a>
+    <a class="qcard" href="#"><div class="ic">🚀</div><div class="t">Superbox 5G</div><div class="s">Ön talep</div></a>
+    <a class="qcard" href="#"><div class="ic">📡</div><div class="t">Ev İnterneti</div><div class="s">Kampanyalar</div></a>
+    <a class="qcard" href="#"><div class="ic">🛒</div><div class="t">Pasaj</div><div class="s">Modem &amp; cihaz</div></a>
+  </div>
+</div></section>
+
+<!-- ====== FAQ (klon + FAQPage schema önerisi) ====== -->
+<section class="blk"><div class="wrap">
+  <div class="eyebrow">FAQPage schema ile işaretlenmeli (+★)</div>
+  <h2>Sıkça Sorulan Sorular</h2>
+  <div class="faq">
+    <details open><summary>İnternet hız testi (speed test) nedir?</summary><div class="ans">Hız testi; bağlantının download (indirme), upload (yükleme) ve ping (gecikme) sürelerini ölçen, bağlantı kalitesini saniyeler içinde raporlayan bir araçtır.</div></details>
+    <details><summary>5G ile ping değeri ne kadar düşer?</summary><div class="ans">5G ile gecikme milisaniyeler seviyesine iner; online oyun ve canlı yayında kesintisiz deneyim sağlar.</div></details>
+    <details><summary>Mobil veri ile Wi-Fi hız testi arasındaki fark neden büyük olabilir?</summary><div class="ans">Baz istasyonu uzaklığı, kapalı alan, cihaz modem çip seti ve anlık şebeke trafiği mobil sonucu etkiler.</div></details>
+    <details><summary>Hız testi ücretli mi?</summary><div class="ans">Hayır, hız testi ücretsizdir. Mobil ağda test, internet paketinizden veri tüketir.</div></details>
+    <details><summary>İdeal internet hızı kaç Mbps olmalı?</summary><div class="ans">Kullanıma göre değişir: 16–24 Mbps temel, 50 Mbps oyun, 100 Mbps+ 4K ve çok cihaz, 1000 Mbps yayıncılık için idealdir.</div></details>
+  </div>
+  <div class="lead" style="margin-top:18px;text-align:center">
+    <div class="reco" style="font-weight:800;font-size:1.4rem">Testin bitti. Şimdi geleceğin hızını keşfetme zamanı.</div>
+    <p style="color:var(--ink-2)">Sana en uygun Turkcell internetini birlikte bulalım.</p>
+    <a class="btn btn-y btn-lg" href="#lead" style="margin-top:10px">Bana Uygun Paketi Bul →</a>
+  </div>
+</div></section>
+
+<!-- ====== KLON KABUK: FOOTER (minimal + Bizi Takip Edin) ====== -->
+<footer class="site"><div class="wrap">
+  <div class="frow">
+    <a class="brand" href="#" style="font-size:1.05rem"><span class="dot">T</span> Turkcell</a>
+    <div>
+      <div style="font-size:.8rem;color:var(--ink-3);margin-bottom:7px;text-align:right">Bizi Takip Edin</div>
+      <div class="social"><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="X">X</a><a href="#" aria-label="YouTube">yt</a><a href="#" aria-label="Facebook">f</a></div>
+    </div>
+  </div>
+  <div class="fbar"><span>© 2026 Turkcell · Tasarım örneği (demo) · Inbound</span><span>Hız Testi LP · CRO/dönüşüm varyantları</span></div>
+</div></footer>
+
+<!-- ====== YÜZEN VARYANT SEÇİCİ ====== -->
+<div class="vpick" id="vpick">
+  <div class="h">Varyant</div>
+  <button class="vbtn" data-v="a"><span class="k">A</span>Akıllı Sonuç<small>sonuç-tetikli paket önerisi</small></button>
+  <button class="vbtn" data-v="b"><span class="k">B</span>Sade Hız<small>tek net sonuç + CTA</small></button>
+  <button class="vbtn" data-v="c"><span class="k">C</span>Değer / Paket<small>karşılaştırma + fiyat</small></button>
+  <button class="vbtn" data-v="d"><span class="k">D</span>Lead / Altyapı<small>form ile lead toplama</small></button>
+  <div class="hint">#v=a · localStorage</div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var VALID=['a','b','c','d'];
+  function curV(){var h=(location.hash.match(/v=([abcd])/)||[])[1];return h||localStorage.getItem('tc_v')||'a';}
+  function setV(v){if(VALID.indexOf(v)<0)v='a';document.body.setAttribute('data-variant',v);localStorage.setItem('tc_v',v);
+    try{history.replaceState(null,'','#v='+v);}catch(e){}
+    document.querySelectorAll('.vbtn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-v')===v);});
+    if(document.getElementById('resultPanel').classList.contains('show'))paint();}
+  document.querySelectorAll('.vbtn').forEach(function(b){b.addEventListener('click',function(){setV(b.getAttribute('data-v'));});});
+  window.addEventListener('hashchange',function(){setV(curV());});
+
+  var last={down:48,up:12,ping:24};
+  function reco(d){
+    if(d<50)return{msg:'4K yayın ve online oyun için <b>Turkcell Fiber 100</b> seni rahatlatır.',sub:'Mevcut hızın yoğun saatlerde kalabalık bir evde zorlanabilir. Daha yüksek ve kararlı hız için aşağıdaki paket öneriliyor.'};
+    if(d<250)return{msg:'Hızın iyi. Eşit upload ve oyuncu performansı için <b>Turkcell Fiber 1000</b> seni bir üst seviyeye taşır.',sub:'Mevcut hızın çoğu kullanım için yeterli; yayıncılık, büyük indirme ve kalabalık ev için fiber 1000 ideal.'};
+    return{msg:'Harika hız! Aynı performansı mobilde de istersen <b>Turkcell 5G</b> ile her yerde yanında.',sub:'Bağlantın çok güçlü. Mobilde de fiber hızı için 5G ve Superbox 5G seçeneklerini değerlendirebilirsin.'};
+  }
+  function T(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  function H(id,v){var e=document.getElementById(id);if(e)e.innerHTML=v;}
+  function paint(){var d=last.down,r=reco(d);
+    T('rSpeed',d);T('rPing',last.ping);
+    T('recoSpeed',d);H('recoMsg',r.msg);T('recoSub',r.sub);
+    T('recoSpeedB',d);T('cNow',d);H('cMsg','Turkcell ile ~'+Math.max(1,Math.round(1000/d))+' kat daha hızlı internet mümkün.');
+    T('recoSpeedD',d);}
+
+  var go=document.getElementById('goBtn'),gauge=document.getElementById('gauge'),busy=false;
+  function run(){
+    if(busy)return;busy=true;go.classList.add('testing');go.textContent='...';
+    document.getElementById('resultPanel').classList.remove('show');
+    var pre=document.getElementById('preHint');if(pre)pre.style.display='none';
+    var tD=Math.round(20+Math.random()*180),tU=Math.round(tD*0.2+Math.random()*10),tP=Math.round(8+Math.random()*40);
+    var t0=Date.now(),DUR=2400,phase='down';
+    var tm=setInterval(function(){
+      var p=Math.min(1,(Date.now()-t0)/DUR);
+      gauge.style.setProperty('--deg',(p*360)+'deg');
+      if(phase==='down'){T('mDown',Math.round(tD*p));go.textContent='İndirme';if(p>=1){phase='up';t0=Date.now();}}
+      else{var pu=Math.min(1,(Date.now()-t0)/1300);T('mUp',Math.round(tU*pu));T('mPing',Math.round(tP*pu)||tP);go.textContent='Yükleme';
+        if(pu>=1){clearInterval(tm);done(tD,tU,tP);}}
+    },60);
+  }
+  function done(d,u,p){busy=false;last={down:d,up:u,ping:p};go.classList.remove('testing');go.textContent='TEKRAR';
+    T('mDown',d);T('mUp',u);T('mPing',p);paint();
+    var rp=document.getElementById('resultPanel');rp.classList.add('show');rp.scrollIntoView({behavior:'smooth',block:'center'});}
+  if(go)go.addEventListener('click',run);
+  setV(curV());
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "turkcell-hiz-testi-ornek-sayfa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Turkcell Hız Testi · SEO/GEO rapor + tasarım örneği (statik). Vercel statik; Railway/Render için npm start.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
