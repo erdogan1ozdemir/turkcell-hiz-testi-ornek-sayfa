@@ -255,7 +255,123 @@ footer.site{background:var(--navy-3);border-top:1px solid var(--line);margin-top
 /* varyant görünürlüğü */
 [data-only]{display:none}
 body[data-variant="a"] [data-only~="a"],body[data-variant="b"] [data-only~="b"],
-body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{display:block}
+body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"],
+body[data-variant="e"] [data-only~="e"]{display:block}
+
+/* ===================== PREMIUM REVİZYON ===================== */
+/* tablo gölgesi (okunabilirlik) */
+.tbl{box-shadow:0 12px 34px rgba(0,0,0,.30)}
+
+/* --- Bölüm başlığı (ortalı, canlı stil) --- */
+.nv-title{text-align:center;font-size:clamp(1.45rem,2vw,1.9rem);font-weight:800;margin-bottom:22px}
+
+/* --- Bölüm A: Turkcell Ev İnterneti'nde Neler Var? (mavi kart · beyaz/cyan ikon) --- */
+.nv-ev{background:linear-gradient(180deg,#001a8f,#001045);border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:34px 26px}
+.nv-ev .nv-grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(150px,1fr);gap:14px}
+.nv-card{position:relative;border-radius:20px;background:var(--blue);border:1px solid rgba(255,255,255,.12);padding:20px;color:#fff;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;gap:14px;overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
+.nv-card::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 100% 0%,rgba(255,255,255,.13),transparent 55%);pointer-events:none}
+.nv-card>*{position:relative;z-index:1}
+.nv-card:hover{transform:translateY(-4px);border-color:rgba(0,196,255,.65);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.nv-card .ic{align-self:flex-end;line-height:0}
+.nv-card .ic svg{width:46px;height:46px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.nv-card .ic .cy{stroke:#00C4FF}.nv-card .ic .wf{fill:#fff;stroke:none}
+.nv-card .cap{font-size:1.08rem;font-weight:700;line-height:1.3}
+.nv-card--first{grid-column:span 2;grid-row:span 2;justify-content:flex-start;padding:34px}
+.nv-card--first .cap{font-size:1.75rem;margin-top:auto}
+.nv-sb{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:18px}
+.nv-sb svg.tlogo{width:42px;height:42px}
+.nv-sb .sbw{font-size:1.5rem;font-weight:800;letter-spacing:.22em;color:#fff}
+.nv-sb .sbw b{font-weight:300}
+@media(max-width:1000px){.nv-ev .nv-grid{grid-template-columns:repeat(3,1fr)}.nv-card--first{grid-column:span 3;grid-row:span 1}.nv-card--first .cap{font-size:1.4rem}}
+@media(max-width:600px){.nv-ev .nv-grid{grid-template-columns:repeat(2,1fr)}.nv-card--first{grid-column:span 2}}
+
+/* --- Bölüm B: Turkcell'de Neler Var? (lacivert kart · sarı ikon) --- */
+.nv-tc{margin-top:14px}
+.nv-tc .nv-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.nv-tcard{position:relative;border:1px solid #132AA9;border-radius:20px;padding:26px 22px;text-decoration:none;color:#fff;background:radial-gradient(78% 78% at 50% 100%,rgba(0,40,169,.5),rgba(0,16,67,.5));display:flex;flex-direction:column;min-height:200px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.nv-tcard:hover{transform:translateY(-4px);border-color:var(--yellow);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.nv-tcard .tt{font-size:1.2rem;font-weight:700;line-height:1.3}
+.nv-tcard .ic{margin:auto auto 0;line-height:0}
+.nv-tcard .ic svg{width:60px;height:60px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.nv-tcard .ic .yf{fill:#FFC900;stroke:none}.nv-tcard .ic .yst{stroke:#FFC900}.nv-tcard .ic .wt{fill:#fff;stroke:none}
+@media(max-width:900px){.nv-tc .nv-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.nv-tc .nv-grid{grid-template-columns:repeat(2,1fr)}.nv-tcard{min-height:170px;padding:20px 16px}}
+
+/* --- Superbox banner · daha yumuşak/premium çerçeve (degrade kenar + glow) --- */
+.banner{position:relative;border:none;background:linear-gradient(135deg,#13277f,#1C37CA 55%,#3457ff);border-radius:26px;box-shadow:0 18px 50px rgba(28,55,202,.32),inset 0 1px 0 rgba(255,255,255,.14);overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 120% at 0% 0%,rgba(255,255,255,.14),transparent 55%);pointer-events:none}
+.banner>*{position:relative;z-index:1}
+
+/* --- 5G/mobil bloğu · iOS soft kart hissi (yumuşak köşe + çift gölge + degrade kenar) --- */
+.fiveg{position:relative;border:none;border-radius:24px;background:
+  linear-gradient(150deg,rgba(0,21,136,.96),rgba(36,26,143,.96)) padding-box,
+  linear-gradient(135deg,rgba(255,197,24,.5),rgba(28,55,202,.5)) border-box;
+  border:1.5px solid transparent;
+  box-shadow:0 2px 4px rgba(0,0,0,.25),0 22px 48px rgba(0,0,0,.4)}
+.fiveg .b5{background:var(--yellow-badge);box-shadow:0 4px 12px rgba(255,170,10,.4)}
+
+/* --- Premium "Test tamamlandı" rozeti (nabız + glow nokta) --- */
+@keyframes badgepulse{0%,100%{box-shadow:0 0 0 0 rgba(57,217,138,.5),0 0 14px rgba(57,217,138,.35)}50%{box-shadow:0 0 0 7px rgba(57,217,138,0),0 0 24px rgba(57,217,138,.6)}}
+@keyframes dotpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.78)}}
+.result-head .badge{position:relative;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#0d3a2c,#0a2536);color:#7CFFB4;border:1px solid rgba(57,217,138,.55);font-weight:800;border-radius:var(--r-pill);padding:8px 16px;font-size:.82rem;letter-spacing:.01em;animation:badgepulse 2.2s ease-in-out infinite}
+.result-head .badge .dot{width:9px;height:9px;border-radius:50%;background:#39d98a;box-shadow:0 0 9px #39d98a;flex:none;animation:dotpulse 1.1s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.result-head .badge{animation:none}.result-head .badge .dot{animation:none}}
+
+/* --- Hız Karnesi (variant B) --- */
+.karne{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 14px}
+.karne .kc{background:var(--navy);border:1px solid var(--line);border-radius:14px;padding:15px 10px;text-align:center}
+.karne .kc .kv{font-size:1.55rem;font-weight:800;color:#fff;line-height:1}
+.karne .kc .kv small{font-size:.62rem;font-weight:700;color:var(--ink-3);margin-left:2px}
+.karne .kc .kl{font-size:.72rem;color:var(--ink-3);margin-top:5px}
+.karne .kc.dl{border-color:rgba(255,197,24,.4)}.karne .kc.dl .kv{color:var(--yellow)}
+.karne-verdict{font-size:.96rem;color:var(--ink-2);margin:2px 0 14px}.karne-verdict b{color:var(--yellow)}
+.trust-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.trust-row span{display:inline-flex;align-items:center;gap:6px;background:var(--navy);border:1px solid var(--line);border-radius:var(--r-pill);padding:6px 12px;font-size:.74rem;color:var(--ink-2);font-weight:700}
+.trust-row span b{color:var(--green)}
+
+/* --- Turkcell One Plus · CTA + karosel (repo style, scoped) --- */
+.oneplus-sec{margin-top:6px}
+.oneplus-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.oneplus-head .pill{background:var(--yellow-badge);color:#1a1a1a;font-weight:800;font-size:.7rem;padding:5px 12px;border-radius:var(--r-pill)}
+.tcone-scope{--oc-blue:#1f47c2;--oc-yellow:#ffd100;--oc-ink:#1b1b1b;--oc-muted:#6b7280;--oc-line:#e6eaf2;--oc-soft:#eef3fb;--oc-head:#2855ac;color:var(--oc-ink)}
+.tcone-scope *{box-sizing:border-box}
+.tcone-rail{display:grid;grid-auto-flow:column;grid-auto-columns:290px;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 14px;scrollbar-width:thin}
+.tcone-rail>.pcard{scroll-snap-align:start}
+.tcone-rail::-webkit-scrollbar{height:8px}.tcone-rail::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:99px}
+.pcard{position:relative;background:#fff;border:1px solid var(--oc-line);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.28);display:flex;flex-direction:column;transition:.18s}
+.pcard:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.4)}
+.pcard.feat{border:2px solid var(--oc-yellow)}
+.pcard__head{background:linear-gradient(135deg,#234fa6,#1C37CA);padding:16px 18px 18px;text-align:center;border-radius:16px 16px 0 0;position:relative}
+.pcard.feat .pcard__head{border-radius:16px 16px 0 0}
+.pcard__head h3{font-size:1.12rem;font-weight:800;color:#fff;margin:0}
+.feat-rib{display:inline-block;background:var(--oc-yellow);color:#3a2e00;font-size:.6rem;font-weight:800;padding:3px 11px;border-radius:99px;margin-top:8px;letter-spacing:.04em;text-transform:uppercase}
+.pcard__body{padding:16px 18px;display:flex;flex-direction:column;flex:1}
+.inc-label{font-size:.66rem;font-weight:800;color:var(--oc-muted);text-transform:uppercase;letter-spacing:.05em;margin:0 0 9px}
+.plats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}
+.plats img{width:100%;aspect-ratio:1;border-radius:10px;object-fit:cover;background:#0b0b0b;border:1px solid #eee}
+.hl-row{display:flex;align-items:center;gap:8px;margin-top:13px;flex-wrap:wrap}
+.chip-tier{background:var(--oc-soft);color:var(--oc-head);padding:4px 11px;border-radius:99px;font-size:.72rem;font-weight:800}
+.chip-fix{display:inline-flex;align-items:center;gap:5px;color:var(--oc-muted);font-size:.74rem;font-weight:700}
+.pcard__foot{padding-top:14px;margin-top:auto;border-top:1px solid var(--oc-line)}
+.pcard__price{font-size:1.4rem;font-weight:800;color:var(--oc-blue);letter-spacing:-.01em}
+.pcard__price small{font-size:.78rem;font-weight:700;color:var(--oc-muted)}
+.pcard__buy{display:block;width:100%;text-align:center;background:var(--yellow-grad);color:#1a1a1a;font-weight:800;font-size:.95rem;padding:13px;border-radius:99px;border:none;margin-top:11px;cursor:pointer;font-family:inherit;transition:.16s}
+.pcard__buy:hover{background:var(--yellow-grad-hi)}
+
+/* --- Yan raylar (geniş ekran) · One Plus + 5G mini CTA --- */
+.siderail{display:none}
+.rail-card{background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);color:#fff}
+.rail-card .rk{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--yellow);font-weight:800}
+.rail-card h4{font-size:1.04rem;margin:6px 0 6px;line-height:1.25}
+.rail-card p{font-size:.79rem;color:var(--ink-2);margin-bottom:13px;line-height:1.45}
+.rail-card .btn{width:100%;justify-content:center;font-size:.86rem;padding:11px 14px}
+.rail-card.g5{background:linear-gradient(160deg,#10256e,#001a8f)}
+@media(min-width:1640px){
+  .siderail{display:block;position:fixed;top:50%;transform:translateY(-50%);z-index:40;width:206px}
+  .siderail.left{left:calc((100vw - 1180px)/2 - 222px)}
+  .siderail.right{right:calc((100vw - 1180px)/2 - 222px)}
+  .vpick{top:auto;bottom:18px;transform:none}
+}
 </style>
 </head>
 <body data-variant="a">
@@ -320,7 +436,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
       <a class="btn btn-y btn-lg glow" href="#lead" style="margin-top:10px">Bana Uygun Paketi Bul →</a>
     </div>
     <div class="result-head">
-      <span class="badge">✓ Test tamamlandı</span>
+      <span class="badge"><span class="dot"></span>Test tamamlandı</span>
       <span style="color:var(--ink-2)">Ölçülen hız: <b id="rSpeed" style="color:#fff">–</b> Mbps · Ping <b id="rPing" style="color:#fff">–</b> ms</span>
     </div>
 
@@ -336,11 +452,18 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
       </div>
     </div></div>
 
-    <!-- B · SADE HIZ -->
-    <div data-only="b"><div class="smart" style="text-align:center">
-      <div class="reco" style="font-size:1.7rem">Hızın <b id="recoSpeedB">48</b> Mbps</div>
-      <p style="color:var(--ink-2)">Bağlantın çalışıyor. Daha hızlısını ister misin?</p>
-      <a class="btn btn-y btn-lg glow" href="#" style="margin-top:12px">Altyapımı sorgula, hızımı yükselt →</a>
+    <!-- B · HIZ KARNESİ -->
+    <div data-only="b"><div class="smart">
+      <div class="eyebrow">Hız Karnen</div>
+      <div class="reco" style="font-size:1.35rem;margin-bottom:10px">İnternet hız karnen hazır</div>
+      <div class="karne">
+        <div class="kc dl"><div class="kv"><span id="kDownB">48</span><small>Mbps</small></div><div class="kl">Download</div></div>
+        <div class="kc"><div class="kv"><span id="kUpB">12</span><small>Mbps</small></div><div class="kl">Upload</div></div>
+        <div class="kc"><div class="kv"><span id="kPingB">24</span><small>ms</small></div><div class="kl">Ping</div></div>
+      </div>
+      <p class="karne-verdict" id="karneVerdict">Bu hız Full HD yayın ve video görüşme için yeterli.</p>
+      <a class="btn btn-y btn-lg glow" href="#lead" style="margin-top:2px">Hızını yükselt · uygun paketi bul →</a>
+      <div class="trust-row"><span><b>✓</b> Ookla altyapısı</span><span><b>✓</b> Turkcell sunucusu</span><span><b>✓</b> KVKK uyumlu</span></div>
     </div></div>
 
     <!-- C · DEĞER/PAKET -->
@@ -375,6 +498,37 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
       </div>
       <div class="note">KVKK kapsamında bilgilerin yalnızca teklif için kullanılır. <b>Tekrarlı lead akışı</b> (hero + sonuç + sayfa sonu) · TurkNet modelinden uyarlandı. Yeni</div>
     </div></div>
+
+    <!-- E · PAKET KÖPRÜSÜ (sonuç → Turkcell One Plus upsell) -->
+    <div data-only="e"><div class="smart">
+      <div class="eyebrow">Sana Özel Köprü</div>
+      <div class="reco" style="font-size:1.25rem;margin-bottom:4px">Mevcut hızın <b id="recoSpeedE">48</b> Mbps · bu hızla <b style="color:var(--yellow)">Turkcell One Plus</b> servislerini akıcı kullanırsın.</div>
+      <p style="color:var(--ink-2);font-size:.9rem;margin-bottom:16px">İnternet + TV+ + dizi/film + müzik + bulut tek pakette, 12 ay sabit fiyat garantisiyle.</p>
+      <div class="tcone-scope" style="max-width:330px;margin:0 auto">
+        <div class="pcard feat">
+          <div class="pcard__head"><h3>Turkcell One Plus</h3><span class="feat-rib">En Çok Tercih Edilen</span></div>
+          <div class="pcard__body">
+            <div class="inc-label">Pakete dahil platformlar</div>
+            <div class="plats">
+              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-tvplus.png" alt="TV+" loading="lazy">
+              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-hbo.png" alt="HBO Max" loading="lazy">
+              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-netflix-standart.png" alt="Netflix" loading="lazy">
+              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-amazonprime.png" alt="Amazon Prime" loading="lazy">
+              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-ytpremium.png" alt="YouTube Premium" loading="lazy">
+              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-ytmusic.png" alt="YouTube Music" loading="lazy">
+              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-fizy.png" alt="fizy" loading="lazy">
+              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-wonjo.png" alt="Wonjo Kids" loading="lazy">
+              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-lifebox.png" alt="Lifebox" loading="lazy">
+            </div>
+            <div class="hl-row"><span class="chip-tier">Netflix Standart</span><span class="chip-fix">✓ 12 ay sabit fiyat</span></div>
+            <div class="pcard__foot">
+              <div class="pcard__price">600 TL<small> · 12 ay sabit fiyat garantisi</small></div>
+              <button class="pcard__buy" type="button" onclick="alert('Demo: Turkcell One Plus satın alma akışına yönlendirir.')">Şimdi Satın Al</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
   </div>
 
   <p class="note-banner" id="preHint">▲ Yukarıdaki <b>GO</b> butonuna bas · test bitince bu alanda seçili varyantın dönüşüm modülü canlanır. Sağdaki/alttaki seçiciden 4 varyantı dene.</p>
@@ -382,7 +536,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
 
 <!-- ====== KARŞILAŞTIRMA TABLOLARI (Turkcell'de olmayan · rapordan) ====== -->
 <section class="blk"><div class="wrap">
-  <h2>Karşılaştırma <span class="y">tabloları</span></h2>
+  <h2>Hız Testi <span class="y">Karşılaştırma Tabloları</span></h2>
   <p class="desc">Hangi hızın hangi kullanıma yettiğini, indirme sürelerini ve metriklerin ne anlama geldiğini görün; her satır ilgili Turkcell pakete bağlanır.</p>
 
   <h3>Hangi hız hangi kullanıma yeter?</h3>
@@ -420,6 +574,13 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
   </table></div>
 </div></section>
 
+<!-- ====== TURKCELL ONE · CTA KAROSEL (paket köprüsü · one-paketler reposundan) ====== -->
+<section class="blk"><div class="wrap oneplus-sec">
+  <div class="oneplus-head"><span class="pill">Sana özel</span><h2 style="margin:0">Mevcut hızınla <span class="y">Turkcell One</span> ile daha fazlası</h2></div>
+  <p class="desc" id="oneIntro">İnternetine TV+, dizi/film, müzik ve bulutu ekle; tek faturada, 12 ay sabit fiyat garantisiyle.</p>
+  <div class="tcone-scope"><div class="tcone-rail" id="oneRail"></div></div>
+</div></section>
+
 <!-- ====== SUPERBOX 5G BANNER (klon) ====== -->
 <section class="blk"><div class="wrap"><div class="banner">
   <div><h3>Fiber hızında, Turkcell gücünde <span class="y">Superbox 5G!</span></h3><p style="color:rgba(255,255,255,.85);margin-top:6px">Altyapı beklemeden, kurulumsuz, taşınabilir yeni nesil ev interneti.</p></div>
@@ -442,19 +603,81 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
   </ul>
 </div></div></section>
 
-<!-- ====== MAVİ KART GRID (klon: Turkcell'de Neler Var?) ====== -->
+<!-- ====== NELER VAR · BÖLÜM A: Turkcell Ev İnterneti (mavi · beyaz/cyan ikon · canlı klon) ====== -->
 <section class="blk"><div class="wrap">
-  <h2>Turkcell'de neler var?</h2>
-  <p class="desc">Tüm araç ve linkler Turkcell içinde (on-domain) · equity Turkcell'de kalır.</p>
-  <div class="cards">
-    <a class="qcard" href="https://www.turkcell.com.tr/altyapi-sorgulama" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="t">Altyapı Sorgulama <span class="ar">→</span></div><div class="s">turkcell.com.tr</div></a>
-    <a class="qcard" href="https://www.turkcell.com.tr/internet-ping-testi" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="t">Ping Testi <span class="ar">→</span></div><div class="s">on-domain · KD 1</div></a>
-    <a class="qcard" href="https://www.turkcell.com.tr/ip-sorgulama" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20z"/></svg></div><div class="t">IP Sorgulama <span class="ar">→</span></div><div class="s">yeni araç</div></a>
-    <a class="qcard" href="https://www.turkcell.com.tr/superbox" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.79-.78.8-2.07.09-2.91a2.18 2.18 0 0 0-3.09-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></div><div class="t">Superbox 5G <span class="ar">→</span></div><div class="s">Ön talep</div></a>
-    <a class="qcard" href="https://www.turkcell.com.tr/ev-interneti" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div><div class="t">Ev İnterneti <span class="ar">→</span></div><div class="s">Kampanyalar</div></a>
-    <a class="qcard" href="https://www.turkcell.com.tr/fiber-internet" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="t">Fiber İnternet <span class="ar">→</span></div><div class="s">1000 Mbps'ye kadar</div></a>
-    <a class="qcard" href="https://www.turkcell.com.tr/mobil/tarifeler" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div class="t">Mobil Tarifeler <span class="ar">→</span></div><div class="s">5G uyumlu</div></a>
-    <a class="qcard" href="https://www.turkcell.com.tr/pasaj" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div class="t">Pasaj <span class="ar">→</span></div><div class="s">Modem &amp; cihaz</div></a>
+  <div class="nv-ev">
+    <h2 class="nv-title">Turkcell Ev İnterneti'nde Neler Var?</h2>
+    <div class="nv-grid">
+      <a class="nv-card nv-card--first" href="https://www.turkcell.com.tr/ev-interneti/superbox-basvuru-ve-altyapi-sorgulama" target="_blank" rel="noopener">
+        <div class="nv-sb">
+          <svg class="tlogo" viewBox="0 0 59 59" xmlns="http://www.w3.org/2000/svg"><path d="M54.375 13.7978C52.1808 10.3885 49.5239 7.59619 46.4168 5.42721C43.3097 3.25824 39.7556 1.70941 35.7702 0.790195C29.2287 -0.723998 22.8665 -0.0408797 16.7311 2.66326C13.3407 4.15857 10.3406 6.22051 7.75924 8.83966C4.53253 12.1167 2.203 15.8251 0.783246 19.9679C0.770654 20.0056 0.758062 20.0434 0.74547 20.0812C0.695102 20.226 0.65103 20.374 0.60381 20.5219C-0.853719 25.31 0.509369 27.9575 2.65002 25.7413C2.73501 25.6437 2.82001 25.5524 2.905 25.458C2.93649 25.4202 2.96797 25.3856 3.00259 25.3447C5.50526 22.2439 9.49064 19.6562 9.49064 19.6562C10.5043 18.9605 11.5589 18.312 12.6544 17.7045C13.9073 16.9804 15.2169 16.3193 16.4383 15.8723C16.4383 15.8723 17.5747 15.3623 17.8769 13.8041C17.8832 13.7757 17.8895 13.7474 17.8927 13.7191C17.8927 13.7033 17.899 13.6907 17.9021 13.675C18.1067 12.3812 19.5139 8.82077 23.4993 8.58467C24.749 8.41468 25.9862 8.63504 27.0786 9.14816C28.9989 10.0485 30.4753 11.8492 30.7743 14.0244C31.0104 15.7527 30.5949 17.3802 29.6977 18.6677C29.6505 18.7401 29.5938 18.8157 29.534 18.8913C29.5151 18.9133 29.4994 18.9385 29.4805 18.9605C28.7313 19.9144 27.7082 20.651 26.4867 21.0665C25.7533 21.3341 25.0103 21.4695 24.2989 21.4884H24.2957C23.8487 21.545 23.3513 21.4884 22.8539 21.3687C22.2936 21.2554 21.7773 21.0697 21.3366 20.8241C20.5685 20.4684 19.942 20.0686 19.7122 19.8608C19.5296 19.694 19.3345 19.6059 19.1456 19.5618C18.7238 19.4925 18.3806 19.5712 18.1288 19.6783H18.1225C17.984 19.7412 17.8738 19.8105 17.7982 19.8671C16.8444 20.651 15.9378 21.4726 15.0752 22.332C12.8149 24.671 10.9167 27.3311 10.029 28.6438C9.55675 29.3867 9.10973 30.1485 8.6879 30.9324C8.29755 31.6564 7.93238 32.3931 7.59554 33.1329C7.06667 34.3071 6.56929 35.5694 6.12227 36.9231C6.10338 36.986 6.08135 37.0458 6.06246 37.1088C6.03413 37.1938 6.00894 37.2819 5.98061 37.3669C5.95543 37.4519 5.93024 37.5369 5.90506 37.6219C3.16314 46.8739 8.09922 52.2161 12.2357 46.6347C12.4624 46.2821 12.6922 45.9295 12.9283 45.5832L12.9346 45.5738C17.2694 38.1823 26.1594 32.8495 26.1594 32.8495H26.1625C26.7071 32.5064 27.258 32.179 27.8121 31.8642C27.8121 31.8642 27.8498 31.839 27.9159 31.8044C29.4396 30.945 31.0073 30.1737 32.6191 29.5C34.0514 28.8704 35.5782 28.2849 36.8406 27.9796C36.8406 27.9796 38.3233 27.5986 38.7199 25.8043C39.0064 24.5136 39.9508 22.6311 42.0914 21.6174C42.5951 21.3624 43.1208 21.1736 43.6528 21.0571C44.2289 20.9312 44.8019 20.8871 45.3622 20.9123H45.3654C45.7305 20.906 46.0359 20.9469 46.2972 21.0225C49.0139 21.5387 51.2396 23.736 51.5638 26.6291C51.9542 30.1391 49.4798 33.3091 45.9383 33.7467C44.1723 33.9639 42.5731 33.5862 41.21 32.5662C39.6801 31.9366 38.5027 32.3396 38.0809 32.5379C36.7461 33.2556 35.4649 34.0521 34.2403 34.9241C31.9611 36.5925 30.1479 38.3334 29.4301 39.0511C27.8561 40.6597 26.4616 42.3691 25.2527 44.1761C25.1898 44.2737 25.1237 44.3712 25.0607 44.4751C25.045 44.5003 25.0261 44.5286 25.0103 44.5538C23.7669 46.5087 22.4416 49.0114 21.3492 52.0398C21.2673 52.2759 21.1855 52.5089 21.1068 52.7481C19.942 56.6327 22.4667 58.1816 25.3912 58.7419C25.3912 58.7419 27.683 59.1763 30.979 58.9402C31.171 58.9245 31.3441 58.9088 31.4921 58.893C32.3263 58.7923 33.1605 58.7041 33.9853 58.5656C39.6769 57.6118 44.7074 55.2697 49.0013 51.4669C54.4096 46.6787 57.6678 40.7101 58.6783 33.6239C59.692 26.5252 58.2691 19.8703 54.3718 13.8104L54.375 13.7978Z" fill="#fff"/></svg>
+          <span class="sbw">SUPERBOX</span>
+        </div>
+        <div class="cap">Superbox Altyapı<br>Sorgulama</div>
+      </a>
+
+      <a class="nv-card" href="https://www.turkcell.com.tr/paket-ve-tarifeler/superbox-kampanyalari" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect class="cy" x="3" y="4" width="18" height="15" rx="2"/><line class="cy" x1="3" y1="8" x2="21" y2="8"/><circle class="cy" cx="6" cy="6" r=".6" fill="#00C4FF" stroke="none"/><circle class="cy" cx="8.2" cy="6" r=".6" fill="#00C4FF" stroke="none"/><path d="M8 12.5l6-1.6v4.2l-6-1.6v-1z"/><path d="M8 12.5H6.6a1 1 0 0 0-1 1v.5a1 1 0 0 0 1 1H8"/><path d="M10.5 15.5l.6 2.2"/></svg></div>
+        <div class="cap">Superbox<br>Kampanyaları</div>
+      </a>
+      <a class="nv-card" href="https://www.turkcell.com.tr/ev-interneti/superbox-5g-on-talep-olusturma" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 7.5a10 10 0 0 1 14 0"/><path d="M8 10.5a5.5 5.5 0 0 1 8 0"/><circle cx="12" cy="13" r="1" fill="#fff" stroke="none"/><text x="12" y="22" text-anchor="middle" font-size="6.4" font-weight="800" fill="#fff" stroke="none">5G</text></svg></div>
+        <div class="cap">Superbox 5G<br>Ön Talep</div>
+      </a>
+      <a class="nv-card" href="https://www.superonline.net/yazlik-internet" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect class="cy" x="3" y="4" width="18" height="12" rx="2"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/><text x="12" y="12.4" text-anchor="middle" font-size="6" font-weight="800" fill="#fff" stroke="none">TV+</text></svg></div>
+        <div class="cap">Yazlık İnternet</div>
+      </a>
+      <a class="nv-card" href="https://www.superonline.net/ev-interneti/online-a-ozel" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 11l8-6 8 6"/><path d="M6 10v8h12v-6"/><path class="cy" d="M14 6.5a4 4 0 0 1 4 4"/><path class="cy" d="M14 9.3a1.6 1.6 0 0 1 1.6 1.6"/></svg></div>
+        <div class="cap">Ev İnterneti<br>Kampanyaları</div>
+      </a>
+      <a class="nv-card" href="https://www.turkcell.com.tr/kampanya/pasaj-sana-ozel/menzilyukselticiler.html" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="13" width="16" height="6" rx="1.5"/><line x1="7.2" y1="13" x2="6" y2="8.5"/><line x1="16.8" y1="13" x2="18" y2="8.5"/><circle cx="8" cy="16" r=".5" fill="#fff" stroke="none"/><circle cx="10.4" cy="16" r=".5" fill="#fff" stroke="none"/><path class="cy" d="M9.5 8a4.5 4.5 0 0 1 5 0"/></svg></div>
+        <div class="cap">Router</div>
+      </a>
+      <a class="nv-card" href="https://www.superonline.net/ev-interneti/tum-kampanyalar" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="5.5" cy="11.5" r="2.6"/><path d="M5.5 14v5"/><path d="M10 19v-6l4-2.8 4 2.8v6"/><path d="M9 13.4L14 9.8l5 3.6"/><path class="cy" d="M15.5 7.5a3 3 0 0 1 3 3"/></svg></div>
+        <div class="cap">TV+<br>Kampanyaları</div>
+      </a>
+      <a class="nv-card" href="https://www.superonline.net/ip-adresi-sorgulama" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18z"/><text x="12" y="13.6" text-anchor="middle" font-size="4" font-weight="800" fill="#fff" stroke="none">WWW</text></svg></div>
+        <div class="cap">IP Sorgulama</div>
+      </a>
+      <a class="nv-card" href="https://www.turkcell.com.tr/internet-ping-testi" target="_blank" rel="noopener">
+        <div class="ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9" ry="4.4" transform="rotate(-32 12 12)"/><circle cx="6.6" cy="14.6" r="1.7" fill="#fff" stroke="none"/><circle class="cy" cx="17.4" cy="9.4" r="1.7" fill="#00C4FF" stroke="none"/></svg></div>
+        <div class="cap">Ping Testi</div>
+      </a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ====== NELER VAR · BÖLÜM B: Turkcell'de Neler Var? (lacivert · sarı ikon · canlı klon) ====== -->
+<section class="blk"><div class="wrap">
+  <div class="nv-tc">
+    <h2 class="nv-title">Turkcell'de Neler Var?</h2>
+    <div class="nv-grid">
+      <a class="nv-tcard" href="https://www.turkcell.com.tr/pasaj" target="_blank" rel="noopener">
+        <div class="tt">Turkcell<br>Pasaj</div>
+        <div class="ic"><svg viewBox="0 0 24 24"><path class="yf" d="M7.5 3.5h7.2a5.4 5.4 0 0 1 0 10.8H11.6V21H7.5V3.5zm4.1 7.2h3a1.8 1.8 0 0 0 0-3.6h-3v3.6z"/></svg></div>
+      </a>
+      <a class="nv-tcard" href="https://www.turkcell.com.tr/tr/turkcellli-olmak/paket-secimi" target="_blank" rel="noopener">
+        <div class="tt">Yeni Hat<br>Al</div>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6a2 2 0 0 1 2-2h6l3 3v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"/><rect x="7" y="9" width="5" height="6" rx="1"/><line x1="9.5" y1="9" x2="9.5" y2="15"/><line x1="7" y1="12" x2="12" y2="12"/><circle class="yf" cx="18.5" cy="6.5" r="4.2"/><line x1="18.5" y1="4.6" x2="18.5" y2="8.4" stroke="#fff" stroke-width="1.5"/><line x1="16.6" y1="6.5" x2="20.4" y2="6.5" stroke="#fff" stroke-width="1.5"/></svg></div>
+      </a>
+      <a class="nv-tcard" href="https://www.turkcell.com.tr/tr/turkcellli-olmak/paket-secimi?packagetype=postpaid" target="_blank" rel="noopener">
+        <div class="tt">Numaranı<br>Taşı</div>
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="7.5" width="13" height="10" rx="2"/><rect x="5" y="10.5" width="3.6" height="3" rx=".6"/><path class="yf" d="M17.5 3l4 1.4V8c0 3-2 4.6-4 5.6-2-1-4-2.6-4-5.6V4.4L17.5 3z"/><path d="M15.7 7.9l1.4 1.4 2.4-2.7" stroke="#fff" stroke-width="1.5" fill="none"/></svg></div>
+      </a>
+      <a class="nv-tcard" href="https://www.turkcell.com.tr/yukle/tl-paket-yukle" target="_blank" rel="noopener">
+        <div class="tt">TL/Paket<br>Yükle</div>
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="5.5" y="2.5" width="13" height="19" rx="2.5"/><path class="yf" d="M8 7.5h8a1.6 1.6 0 0 1 1.6 1.6v3.2A1.6 1.6 0 0 1 16 13.9h-3.6L9.5 16v-2.1H8a1.6 1.6 0 0 1-1.6-1.6V9.1A1.6 1.6 0 0 1 8 7.5z"/><text x="12" y="12.1" text-anchor="middle" font-size="4" font-weight="800" fill="#fff" stroke="none">TL</text></svg></div>
+      </a>
+      <a class="nv-tcard" href="https://www.turkcell.com.tr/paket-ve-tarifeler/ek-paketler" target="_blank" rel="noopener">
+        <div class="tt">Ek Paket<br>Al</div>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M8 3h7l4 4v14H8z"/><path d="M15 3v4h4"/><circle class="yf" cx="7.5" cy="17.5" r="4.2"/><line x1="7.5" y1="15.6" x2="7.5" y2="19.4" stroke="#fff" stroke-width="1.5"/><line x1="5.6" y1="17.5" x2="9.4" y2="17.5" stroke="#fff" stroke-width="1.5"/></svg></div>
+      </a>
+    </div>
   </div>
 </div></section>
 
@@ -623,24 +846,45 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
   <div class="fbar"><span>© 2026 Turkcell · Tasarım örneği (demo) · Inbound</span><span>Hız Testi LP · CRO/dönüşüm varyantları</span></div>
 </div></footer>
 
+<!-- ====== YAN RAYLAR (geniş ekran · One + 5G mini CTA) ====== -->
+<aside class="siderail left" aria-hidden="true">
+  <div class="rail-card">
+    <div class="rk">Sana özel</div>
+    <h4>Turkcell One Plus</h4>
+    <p>Mevcut hızınla internet + TV+ + dizi/film + müzik tek pakette. 12 ay sabit fiyat.</p>
+    <a class="btn btn-y btn-sm" href="#oneRail">Paketi incele →</a>
+  </div>
+</aside>
+<aside class="siderail right" aria-hidden="true">
+  <div class="rail-card g5">
+    <div class="rk">5G · Mobil</div>
+    <h4>Turkcell 5G</h4>
+    <p>Gecikme milisaniyelere insin, indirme kat kat hızlansın. Her yerde fiber hızı.</p>
+    <a class="btn btn-y btn-sm" href="#">5G'yi keşfet →</a>
+  </div>
+</aside>
+
 <!-- ====== YÜZEN VARYANT SEÇİCİ ====== -->
 <div class="vpick" id="vpick">
   <div class="h">Varyant</div>
   <button class="vbtn" data-v="a"><span class="k">A</span>Akıllı Sonuç<small>sonuç-tetikli paket önerisi</small></button>
-  <button class="vbtn" data-v="b"><span class="k">B</span>Sade Hız<small>tek net sonuç + CTA</small></button>
+  <button class="vbtn" data-v="b"><span class="k">B</span>Hız Karnesi<small>download/upload/ping karne</small></button>
   <button class="vbtn" data-v="c"><span class="k">C</span>Değer / Paket<small>karşılaştırma + fiyat</small></button>
   <button class="vbtn" data-v="d"><span class="k">D</span>Lead / Altyapı<small>form ile lead toplama</small></button>
+  <button class="vbtn" data-v="e"><span class="k">E</span>Paket Köprüsü<small>One Plus upsell</small></button>
   <div class="hint">#v=a · localStorage</div>
 </div>
 
 <script>
 (function(){
   'use strict';
-  var VALID=['a','b','c','d'];
-  function curV(){var h=(location.hash.match(/v=([abcd])/)||[])[1];return h||localStorage.getItem('tc_v')||'a';}
+  var VALID=['a','b','c','d','e'];
+  function curV(){var h=(location.hash.match(/v=([a-e])/)||[])[1];return h||localStorage.getItem('tc_v')||'a';}
   function setV(v){if(VALID.indexOf(v)<0)v='a';document.body.setAttribute('data-variant',v);localStorage.setItem('tc_v',v);
     try{history.replaceState(null,'','#v='+v);}catch(e){}
     document.querySelectorAll('.vbtn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-v')===v);});
+    var oi=document.getElementById('oneIntro');
+    if(oi){var ot={a:'Akıllı öneri: ölçülen hızınla bu paketlerdeki tüm servisleri akıcı kullanırsınız.',b:'Hız karnenize göre internet + TV+ + dizi/film + müzik tek pakette; en uygununu seçin.',c:'Paketleri yan yana karşılaştırın; hepsi 12 ay sabit fiyat garantili.',d:'Adresinize uygun en hızlı interneti One paketleriyle birleştirin.',e:'Mevcut hızınızla One Plus tüm servisleri akıcı kullanır; tek faturada toplayın.'};oi.textContent=ot[v]||ot.a;}
     if(document.getElementById('resultPanel').classList.contains('show'))paint();}
   document.querySelectorAll('.vbtn').forEach(function(b){b.addEventListener('click',function(){setV(b.getAttribute('data-v'));});});
   window.addEventListener('hashchange',function(){setV(curV());});
@@ -653,11 +897,18 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
   }
   function T(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
   function H(id,v){var e=document.getElementById(id);if(e)e.innerHTML=v;}
+  function karneVerdict(d){
+    if(d<35)return'Bu hız <b>e-posta, web ve sosyal medya</b> için yeterli; HD yayın ve oyunda zorlanabilir.';
+    if(d<100)return'Bu hız <b>Full HD yayın ve video görüşme</b> için yeterli; 4K ve çok cihazlı kullanımda zorlanabilir.';
+    if(d<300)return'Bu hız <b>4K yayın ve online oyun</b> için rahat; kalabalık evde Fiber 1000 daha akıcı olur.';
+    return'Bu hız <b>yayıncılık ve beklemesiz indirme</b> için mükemmel.';
+  }
   function paint(){var d=last.down,r=reco(d);
     T('rSpeed',d);T('rPing',last.ping);
     T('recoSpeed',d);H('recoMsg',r.msg);T('recoSub',r.sub);
-    T('recoSpeedB',d);T('cNow',d);H('cMsg','Turkcell ile ~'+Math.max(1,Math.round(1000/d))+' kat daha hızlı internet mümkün.');
-    T('recoSpeedD',d);}
+    T('cNow',d);H('cMsg','Turkcell ile ~'+Math.max(1,Math.round(1000/d))+' kat daha hızlı internet mümkün.');
+    T('recoSpeedD',d);T('recoSpeedE',d);
+    T('kDownB',d);T('kUpB',last.up);T('kPingB',last.ping);H('karneVerdict',karneVerdict(d));}
 
   var go=document.getElementById('goBtn'),gauge=document.getElementById('gauge'),busy=false;
   function run(){
@@ -679,6 +930,28 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
     var rp=document.getElementById('resultPanel');rp.classList.add('show');rp.scrollIntoView({behavior:'smooth',block:'center'});}
   if(go)go.addEventListener('click',run);
   setV(curV());
+
+  /* Turkcell One karosel render (one-paketler reposundan · 3 paket) */
+  (function(){
+    var rail=document.getElementById('oneRail');if(!rail)return;
+    var B='https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/';
+    var L={tvplus:['pl-tvplus.png','TV+'],hbo:['pl-hbo.png','HBO Max'],net:['pl-netflix-standart.png','Netflix'],amz:['pl-amazonprime.png','Amazon Prime'],ytp:['pl-ytpremium.png','YouTube Premium'],ytm:['pl-ytmusic.png','YouTube Music'],fizy:['pl-fizy.png','fizy'],wonjo:['pl-wonjo.png','Wonjo Kids'],life:['pl-lifebox.png','Lifebox']};
+    var PKG=[
+      {name:'Turkcell One',rib:'',tier:'TV+ Süper',price:'400 TL',plats:['tvplus','ytm','fizy','life'],feat:false},
+      {name:'Turkcell One Plus',rib:'En Çok Tercih Edilen',tier:'Netflix Standart',price:'600 TL',plats:['tvplus','hbo','net','amz','ytp','ytm','fizy','wonjo','life'],feat:true},
+      {name:'Turkcell One Pro',rib:'En Kapsamlı',tier:'Netflix Premium',price:'850 TL',plats:['tvplus','hbo','net','amz','ytp','ytm','fizy','wonjo','life'],feat:false}
+    ];
+    function tiles(ks){return ks.map(function(k){return '<img src="'+B+L[k][0]+'" alt="'+L[k][1]+'" loading="lazy">';}).join('');}
+    rail.innerHTML=PKG.map(function(p){
+      return '<div class="pcard'+(p.feat?' feat':'')+'">'
+        +'<div class="pcard__head"><h3>'+p.name+'</h3>'+(p.rib?'<span class="feat-rib">'+p.rib+'</span>':'')+'</div>'
+        +'<div class="pcard__body"><div class="inc-label">Pakete dahil platformlar</div>'
+        +'<div class="plats">'+tiles(p.plats)+'</div>'
+        +'<div class="hl-row"><span class="chip-tier">'+p.tier+'</span><span class="chip-fix">✓ 12 ay sabit fiyat</span></div>'
+        +'<div class="pcard__foot"><div class="pcard__price">'+p.price+'<small> /ay · 12 ay sabit</small></div>'
+        +'<button class="pcard__buy" type="button">Şimdi Satın Al</button></div></div></div>';
+    }).join('');
+  })();
 
   /* interaktif FAQ · yumuşak aç/kapa animasyonu (max-height) */
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
