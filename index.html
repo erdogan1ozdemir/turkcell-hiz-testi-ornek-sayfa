@@ -133,7 +133,8 @@ section.blk{padding:30px 0}
 .tbl th{background:var(--blue);text-align:left;padding:11px 13px;color:#fff;font-weight:700}
 .tbl td{padding:10px 13px;border-top:1px solid var(--line-2);color:var(--ink-2)}
 .tbl tr:hover td{background:var(--navy-2)}.tbl a{color:var(--yellow)}.tbl a:hover{text-decoration:underline}
-.table-scroll{overflow-x:auto}
+.table-scroll{overflow-x:auto;margin:14px 0 8px}
+section.blk h3{margin-top:22px}
 
 /* mavi kart grid (klon: 'Turkcell'de Neler Var?') */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
@@ -271,7 +272,6 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
         <div class="pkg"><span class="tag alt">EN HIZLI</span><div class="name">Fiber 1000</div><div class="spd">1000 Mbps</div><div class="price">1.149 TL<span style="font-size:.8rem">/ay</span></div><ul><li>Eşit download/upload</li><li>Oyuncu &amp; yayıncı için</li><li>Wi-Fi 6 modem</li></ul><a class="btn btn-o" href="#">İncele</a></div>
         <div class="pkg"><span class="tag alt">MOBİL</span><div class="name">Superbox 5G</div><div class="spd">5G hız</div><div class="price">Kurulumsuz</div><ul><li>Taşınabilir internet</li><li>Altyapı beklemeden</li><li>Hemen kullan</li></ul><a class="btn btn-o" href="#">İncele</a></div>
       </div>
-      <div class="note-banner"><b>Önerinin kalbi:</b> Bu modül ölçülen hıza göre değişir (rakiplerde YOK). Düşük hızda fiber/upgrade, yüksek hızda "5G ile mobilde de bu hız" mesajı gösterir. <b>+★</b></div>
     </div></div>
 
     <!-- B · SADE HIZ -->
@@ -320,9 +320,8 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
 
 <!-- ====== KARŞILAŞTIRMA TABLOLARI (Turkcell'de olmayan · rapordan) ====== -->
 <section class="blk"><div class="wrap">
-  <div class="eyebrow">Yeni · Turkcell'de olmayan</div>
   <h2>Karşılaştırma <span class="y">tabloları</span></h2>
-  <p class="desc">Rakiplerde olan, Turkcell'de olmayan yapısal tablolar. Hem kullanıcıya yol gösterir hem "internet hızı kaç olmalı" aramalarını karşılar; her satır ilgili Turkcell pakete bağlanır.</p>
+  <p class="desc">Hangi hızın hangi kullanıma yettiğini, indirme sürelerini ve metriklerin ne anlama geldiğini görün; her satır ilgili Turkcell pakete bağlanır.</p>
 
   <h3>Hangi hız hangi kullanıma yeter?</h3>
   <div class="table-scroll"><table class="tbl">
@@ -398,37 +397,50 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
 <!-- ====== İÇERİK · canlıdan scrape + brief ile yenilendi · ilk paragraf görünür ====== -->
 <section class="blk"><div class="wrap content-block">
   <div class="eyebrow">Hız Testi Rehberi</div>
-  <h2>İnternet hız testi ile <span class="y">bağlantı kalitenizi</span> ölçün</h2>
-  <p class="lead-p">İnternet bağlantınızın kalitesini ölçmek, kesintisiz bir online deneyim için önemlidir. Turkcell internet hız testi; güçlü altyapısı sayesinde indirme (download), yükleme (upload), ping ve jitter değerlerinizi saniyeler içinde gösterir. Sonuca göre performans sorunlarını anında görebilir, size en uygun Turkcell internetini birlikte belirleyebilirsiniz.</p>
+  <h2>Turkcell Hız Testi ile İnternet Bağlantınızın <span class="y">Kalitesini Kolaylıkla Öğrenin</span></h2>
+  <p class="lead-p">İnternet bağlantısının kalitesini ölçmek, online aktiviteleri kesintisiz sürdürebilmek adına son derece önemli. Turkcell internet hız testi güçlü altyapısı ve gelişmiş teknolojisi sayesinde internet hızım ne durumda, ping değerlerim ideal mi gibi sorularınıza saniyeler içinde net yanıtlar bulmanızı sağlıyor.</p>
   <details class="readmore">
     <summary>Devamını oku</summary>
     <div class="more">
-      <h3>İnternet Hız Testi (Speed Test) Nedir?</h3>
-      <p>Speed test, internet bağlantısının performansını ve kalitesini ölçen bir araçtır. ADSL, VDSL, fiber ve Wi-Fi hız testi; indirme, yükleme ve ping değerlerini ölçerek bağlantınızın ne kadar hızlı ve kararlı olduğunu ortaya koyar. Sonuçlar oyun, video izleme ve dosya indirme gibi aktivitelerdeki performansınızı anlamanıza yardımcı olur; servis sağlayıcınızın vadettiği hızı alıp almadığınızı da gözlemleyebilirsiniz.</p>
+      <p>Bu kullanıcı dostu araç sayesinde herhangi bir performans sorununu anında tespit edebilir böylelikle çözüm odaklı adımlar atabilirsiniz. Eğer siz de internet bağlantınızın gücünü merak ediyor ve kesintisiz bir online deneyim yaşamak istiyorsanız Turkcell hız testi ile internet bağlantınızın kalitesini keşfedebilirsiniz.</p>
+
+      <div style="background:var(--navy-2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0">
+        <b style="color:var(--yellow)">Hız testine başlamadan önce</b>
+        <p style="margin-top:6px">Arka planda çalışan programları ve internet tarayıcınızdaki diğer sekmeleri kapatın. Ağ trafiğini rahatlatmak için modeme bağlı diğer cihazların internet bağlantısını kesin. Bilgisayar üzerinden test yapıyorsanız en doğru sonuç için Ethernet kablosu kullanın. Test sonucunu etkilememesi için devam eden dosya indirme işlemlerini durdurun.</p>
+      </div>
+
+      <h3>Bağlantınızın Kalitesini Göstermeye Yardımcı İnternet Hız Testi Nedir?</h3>
+      <p>Speed test, internet bağlantısının performansını analiz etmek ve kalitesini ölçmek için tasarlanmış bir araçtır. DSL, ADSL, VDSL ve WiFi hız testi; internet hızını, yükleme ve indirme sürelerini ve ping değerlerini ölçerek bağlantının ne kadar hızlı ve istikrarlı olduğunu ortaya koyar. İnternet speed test sonuçları; oyun oynama, video izleme, dosya indirme gibi online aktivitelerdeki performansınızı belirlemenize yardımcı olur.</p>
+      <p>Dilerseniz bu araçla servis sağlayıcınızın vadettiği hızı alıp almadığınızı gözlemleyebilir, megabit hız testi verileriyle teknik detaylara hakim olabilirsiniz. İnternet hızı ölçme işlemi, olası darboğazları belirleyerek teknik destek ihtiyacınız olup olmadığını anlamanızı kolaylaştırır.</p>
 
       <h3>İnternet Hızı Nasıl Ölçülür?</h3>
       <p>Hız testi, cihazınız ile sunucu arasında veri alışverişi yaparak hızınızı saniyedeki megabit (Mbps) cinsinden hesaplar. En doğru sonuç için kablolu (Ethernet) bağlantı kullanın, Turkcell sunucusunu seçin, arka plan uygulamalarını kapatın ve testi birkaç kez tekrarlayın.</p>
 
-      <h3>Turkcell İnternet Hız Testinin Avantajları</h3>
-      <p>Hızlı ve net sonuçlar vererek altyapı performansınızı kontrol etmenizi ve olası bağlantı sorunlarını tespit etmenizi sağlar. Hızınızın yetersiz olduğunu düşünüyorsanız altyapı sorgulama ile bölgenizdeki maksimum hızı öğrenebilir; altyapınız uygunsa daha yüksek hızlı fiber paketlerine ya da kurulumsuz Superbox 5G'ye geçişi değerlendirebilirsiniz.</p>
+      <h3>Turkcell İnternet Hız Testinin Sağladığı Avantajlar Nelerdir?</h3>
+      <p>Turkcell ev interneti hız testi, kesin ve hızlı sonuçlar vererek altyapı performansını kontrol etmenizi ve potansiyel bağlantı sorunlarını tespit etmenizi sağlar. İnternet testi sonuçlarına göre hızınızın yetersiz olduğunu düşünüyorsanız, altyapınızın desteklediği maksimum kapasiteyi öğrenmek için altyapı sorgulama yapabilirsiniz.</p>
+      <p>Altyapınız uygunsa, çok daha yüksek hızlar sunan fiber internet paketlerine geçişi değerlendirebilirsiniz. Bağlantı hızı testi sonuçları, modem yerleşimini optimize etmeniz ve interneti daha verimli kullanmanız için size rehberlik eder.</p>
 
-      <h3>Tüm Cihazlardan Kolay Erişim</h3>
-      <p>Çevrim içi bir hizmet olduğu için uygulama indirmeden bilgisayar, akıllı telefon ve tabletten erişilir. Mobil internet hız testini tarayıcıdan başlatabilir; ister Wi-Fi ister kablolu bağlantınızı, ADSL veya fiber ölçümünü tek tıkla yapabilirsiniz.</p>
+      <h3>Tüm Cihazlardan Kolay Erişim ve Kullanım İmkanı</h3>
+      <p>Turkcell online hız testi, çevrim içi bir hizmet olduğu için herhangi bir uygulama indirme zorunluluğu olmaksızın bilgisayar, akıllı telefon ve tablet gibi farklı cihazlardan kolaylıkla erişilebilir. Kullanıcılar, mobil internet hız testini internet tarayıcıları üzerinden başlatarak bağlantı hızlarını seri bir şekilde sorgulayabilir.</p>
+      <p>Turkcell internet hız testi sorgulama hizmetinin kullanıcı dostu arayüzü sayesinde kolayca ihtiyaçlarınıza uygun internet hizmetini tercih edebilirsiniz. İster WiFi test yapın ister kablolu bağlantınızı ölçün, tek bir tıklama ile ADSL test veya fiber ölçümlerinizi gerçekleştirebilirsiniz.</p>
 
       <h3>Mobil ve 5G Hız Testi</h3>
       <p>Hız testi aramalarının büyük kısmı mobil cihazlardan gelir. Turkcell 5G ile gecikme milisaniyeler seviyesine iner ve indirme hızı kat kat artar. Mobil testte en doğru sonuç için 5G kapsama alanında, 5G uyumlu cihazla ve Turkcell sunucusuyla ölçüm yapın.</p>
 
-      <h3>Karşılaştırma ve İstatistiklerle Performans Ölçümü</h3>
-      <p>Gerçek zamanlı grafikler ve sonuçlarla internet performansınızı analiz edebilir, ping ve jitter değerlerinizle bağlantınızın kararlılığını kontrol edebilirsiniz. Mevcut hızınız yetmiyorsa 1000 Mbps'ye varan fiber veya kurulumsuz Superbox 5G paketleriyle deneyiminizi bir üst seviyeye taşıyabilirsiniz.</p>
+      <h3>Karşılaştırma ve İstatistikler ile İnternet Performansının Ölçümü</h3>
+      <p>Gerçek internet hız testi, gerçek zamanlı grafikler ve test sonuçları sunarak kullanıcılara internet performansını analiz etme imkanı tanır. Modem hız testi ile farklı bağlantı türlerinde yapılan ölçümler, siz kullanıcılara en doğru sonuçları sunmak için optimize edilir. Özellikle speed test MBPS ve ping testi verileriyle bağlantınızın kararlılığı kontrol edilebilir.</p>
+      <p>Mevcut hızınız size yetmiyorsa 1000 MBPS internet gibi ultra yüksek hızlı paketlerimizi inceleyebilir veya bütçe dostu bir seçenek olan 200 MBPS internet tarifelerimizle deneyiminizi bir üst seviyeye taşıyabilirsiniz.</p>
+
+      <h3>Turkcell Hız Testi ile Bağlantınızı Test Edin, İnternetinizi Güçlendirin!</h3>
+      <p>Turkcell speed test, internet bağlantınızın kalitesini kolaylıkla ölçmenize olanak sağlar. Gerçek zamanlı grafikler ve istatistiklerle internet performansınızı ölçebilir, ping değerlerinizi kontrol edebilirsiniz. Tüm cihazlardan kolay erişim imkanı sunan bu speed test ile bağlantınızın kalitesini ölçerek internet hızını kontrol edin ve gerekli önlemleri alarak internet performansınızı güçlendirin!</p>
     </div>
   </details>
 </div></section>
 
 <!-- ====== SSS · KÜMELENMİŞ AKORDEON (canlıdaki tüm sorular + 5G/ADSL) ====== -->
 <section class="blk"><div class="wrap">
-  <div class="eyebrow">FAQPage şeması ile işaretlenir</div>
   <h2>Hız Testi Rehberi &amp; <span class="y">Sıkça Sorulan Sorular</span></h2>
-  <p class="desc">Canlı sayfadaki tüm sorular konu başlıklarına ayrıldı; uzun açık metin yerine açılır-kapanır gelir. 5G, ADSL ve mobil sorular eklendi.</p>
+  <p class="desc">Tüm sorular konu başlıklarına ayrılmıştır; her başlık açılır-kapanır gelir.</p>
   <div class="faq-nav">
     <a href="#f1">Nedir &amp; Neden</a><a href="#f2">Nasıl Yapılır</a><a href="#f3">Metrikler</a>
     <a href="#f4">İdeal Hız</a><a href="#f5">Sorun Giderme</a><a href="#f6">Mobil &amp; 5G</a>
@@ -436,54 +448,59 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
 
   <h3 id="f1" class="cl"><span class="cl-n">1</span> Hız Testi Nedir &amp; Neden Önemli</h3>
   <div class="faq">
-    <details><summary>Hız testi nedir?</summary><div class="ans">İnternet bağlantınızın indirme (download), yükleme (upload) ve gecikme (ping) hızını saniyeler içinde ölçen ücretsiz bir araçtır.</div></details>
-    <details><summary>İnternet hız testi (speed test) nedir?</summary><div class="ans">Cihazınız ile bir sunucu arasında veri alışverişi yaparak bağlantınızın gerçek hızını ve kalitesini raporlayan testtir.</div></details>
-    <details><summary>İnternet hız testi nasıl çalışır?</summary><div class="ans">Test, sunucuya küçük dosyalar gönderip indirerek download/upload hızını ve ping süresini ölçer.</div></details>
-    <details><summary>Bağlantı hızını neden test etmelisin?</summary><div class="ans">Aldığınız hızın taahhüt edilen hıza yakın olup olmadığını ve bağlantı kalitenizi görmek için.</div></details>
-    <details><summary>İnternet hız testi güvenilir mi?</summary><div class="ans">Doğru sunucu seçilip arka plan uygulamaları kapatıldığında güvenilirdir; tek ölçüm yerine birkaç kez tekrarlamak önerilir.</div></details>
-    <details><summary>Hız testi ücretli mi?</summary><div class="ans">Hayır, ücretsizdir. Yalnızca mobil ağda yapılan test internet paketinizden veri tüketir.</div></details>
+    <details><summary>Hız Testi Nedir?</summary><div class="ans">Hız testi, cihazınızın internete erişim kalitesini, veri indirme ve yükleme kapasitesini anlık olarak ölçen dijital bir analiz aracıdır.</div></details>
+    <details><summary>İnternet Hız Testi (Speed Test) Nedir?</summary><div class="ans">Speed test; bağlantınızın download (indirme), upload (yükleme) ve ping (gecikme) sürelerini teknik olarak ölçen ve size raporlayan bir sistemdir.</div></details>
+    <details><summary>İnternet Hız Testi Nasıl Çalışır?</summary><div class="ans">Test başlatıldığında cihazınız en yakın sunucuya veri paketleri gönderip alıyor. Bu veri transferinin ne kadar sürede tamamlandığı hesaplanarak hızınız tespit ediliyor.</div></details>
+    <details><summary>Bağlantı Hızını Neden Test Etmelisin?</summary><div class="ans">Aldığınız hizmetin kalitesini kontrol etmek, darboğazları görmek ve olası teknik sorunları erkenden fark etmek için fiber hız testi yapmak önem taşıyor.</div></details>
+    <details><summary>İnternet Hız Testi Güvenilir mi?</summary><div class="ans">Evet, Turkcell testi sunucularla doğrudan iletişim kurarak o anki gerçek ve şeffaf veriyi yansıtıyor.</div></details>
+    <details><summary>Hız Testi Ücretli mi?</summary><div class="ans">Hayır, internet hız ölçer aracı ücretsiz olarak sunuluyor. Dilediğiniz zaman, dilediğiniz sıklıkta ADSL hız testi veya fiber testi yapabilirsiniz.</div></details>
   </div>
 
   <h3 id="f2" class="cl"><span class="cl-n">2</span> Hız Testi Nasıl Yapılır &amp; Doğru Ölçüm</h3>
   <div class="faq">
-    <details><summary>İnternet hız testi nasıl yapılır?</summary><div class="ans">"GO / Başlat" butonuna basın; test indirme, yükleme ve ping değerlerini otomatik ölçer.</div></details>
-    <details><summary>İnternet hızı nasıl ölçülür?</summary><div class="ans">Sunucuyla veri alışverişi süresi ölçülerek saniyedeki megabit (Mbps) cinsinden hesaplanır.</div></details>
-    <details><summary>İnternet indirme hızı nasıl ölçülür?</summary><div class="ans">Sunucudan cihazınıza dosya indirilirken birim zamanda aktarılan veri miktarı ölçülür.</div></details>
-    <details><summary>İnternet hat hızını nasıl öğrenebilirsin?</summary><div class="ans">Hız testi yaparak veya Turkcell hesabınızdan mevcut tarife hızınızı görerek öğrenebilirsiniz.</div></details>
-    <details><summary>Hız testi öncesinde nelere dikkat edilmeli?</summary><div class="ans">Diğer cihazların bağlantısını kesin, açık indirmeleri durdurun, mümkünse Ethernet kablosu kullanın.</div></details>
-    <details><summary>En doğru hız testini nasıl yaparım?</summary><div class="ans">Kablolu bağlantı, Turkcell sunucusu ve tek cihaz ile, testi birkaç kez tekrarlayarak.</div></details>
-    <details><summary>Wi-Fi ile hız testi yapabilir miyim?</summary><div class="ans">Evet; ancak Wi-Fi sinyali ve mesafe sonucu etkiler. En doğru sonuç Ethernet ile alınır.</div></details>
-    <details><summary>Hız testi yaparken nelere dikkat etmeliyim?</summary><div class="ans">Arka plan uygulamalarını kapatın ve doğru sonuç için Turkcell sunucusunu seçin.</div></details>
+    <details><summary>İnternet Hız Testi Nasıl Yapılır?</summary><div class="ans">Turkcell hız testi aracı sayesinde internet bağlantınızın kalitesini saniyeler içinde, güvenilir bir şekilde ölçebilirsiniz. İşlemi gerçekleştirmek için şu adımları izleyebilirsiniz: Hız testi ekranındaki başlat butonuna tıklayın. Sistemin sunucularla veri alışverişi yaparak analizi tamamlamasını bekleyin. Sonuç ekranındaki indirme (download), yükleme (upload) ve ping değerlerini inceleyin. Doğru sonuçlar elde etmek için test sırasında diğer cihazlardaki internet kullanımını minimize etmelisiniz.</div></details>
+    <details><summary>İnternet Hızı Nasıl Ölçülür?</summary><div class="ans">İnternet hızını ölçmek için şu adımları izleyebilirsiniz: Turkcell hız testi sayfasını açın. "Go" butonuna tıklayın. Sistemin indirme, yükleme ve ping değerlerini ölçmesini bekleyin.</div></details>
+    <details><summary>İnternet İndirme Hızı Nasıl Ölçülür?</summary><div class="ans">Sistem, cihazınıza test amaçlı dosya parçacıkları indiriyor. Bu işlemin saniyede ne kadar veri ile gerçekleştiği hesaplanarak download hızı Mbps cinsinden ekrana yansıtılıyor.</div></details>
+    <details><summary>İnternet Hat Hızını Nasıl Öğrenebilirsin?</summary><div class="ans">En sağlıklı yöntem, bilgisayarınızı modeme ethernet kablosuyla bağlayıp hız testi yapmaktır. Ayrıca modem arayüzüne giriş yaparak "buluşma hızı" (hat değerleri) bilgilerini kontrol edebilirsiniz.</div></details>
+    <details><summary>Hız Testi Öncesinde Dikkat Edilmesi Gerekenler Nelerdir?</summary><div class="ans">Doğru bir test için hazırlık aşamasında şunları yapmalısınız: Modeminizi kapatıp açarak önbelleğini temizleyin. VPN veya Proxy gibi aracı programları kapatın. Tarayıcınızdaki gereksiz sekmeleri sonlandırın.</div></details>
+    <details><summary>Hız Testi Yaparken Dikkat Edilmesi Gerekenler Nelerdir?</summary><div class="ans">Test esnasında şu noktalara özen gösterilmelidir: Ağdaki TV ve telefon gibi diğer cihazların internet kullanımını durdurun. Cihazınızda arka planda çalışan indirme işlemlerini kapatın. Mümkünse kablolu bağlantı tercih edin.</div></details>
+    <details><summary>En Doğru İnternet Hız Testini Nasıl Yaparım?</summary><div class="ans">Sinyal kaybı ve parazitleri önlemek adına, bilgisayarınızı modeme doğrudan Ethernet (LAN) kablosu ile bağlayarak yapılan test en net ve doğru sonucu veriyor.</div></details>
+    <details><summary>Wi-Fi ile Hız Testi Yapabilir miyim?</summary><div class="ans">Evet, telefon veya tabletle Wi-Fi hız testi yapabilirsiniz. Ancak modeme olan mesafe, duvarlar ve çevresel sinyaller sonucu etkileyebileceğinden modeme yakın durmanız öneriliyor.</div></details>
+    <details><summary>Hız Testi Yaparken Nelere Dikkat Etmeliyim?</summary><div class="ans">Kullandığınız cihazın işlemcisini yoran ağır programların kapalı olması ve tarayıcınızın güncel olması testin doğruluğunu artırıyor.</div></details>
   </div>
 
   <h3 id="f3" class="cl"><span class="cl-n">3</span> Metrikler &amp; Sonuçlar</h3>
   <div class="faq">
-    <details><summary>İnternet hız testi sonuçları ne anlama gelir?</summary><div class="ans">Download indirme, upload yükleme, ping ise gecikme hızınızı gösterir. Yüksek download/upload ve düşük ping iyidir.</div></details>
-    <details><summary>İnternet hız testinde neye bakılır?</summary><div class="ans">Öncelikle download, ardından upload ve ping/jitter değerlerine bakılır.</div></details>
-    <details><summary>İnternet hızı metrikleri nelerdir?</summary><div class="ans">Download, Upload, Ping, Jitter ve Packet Loss başlıca metriklerdir (üstteki tabloya bakın).</div></details>
-    <details><summary>Mbps nedir?</summary><div class="ans">Saniyede megabit; internet hızının birimidir. 8 Mbps yaklaşık 1 MB/saniye demektir.</div></details>
-    <details><summary>Ping nedir?</summary><div class="ans">Verinin gidip gelme gecikmesidir (ms). Oyun ve görüşmede düşük olması önemlidir.</div></details>
-    <details><summary>Download ve upload nedir?</summary><div class="ans">Download internetten cihaza indirme, upload cihazdan internete yükleme hızıdır.</div></details>
-    <details><summary>Packet loss nedir?</summary><div class="ans">Hedefe ulaşamayan veri paketlerinin oranıdır; yüksekse kesinti ve takılma yaşanır.</div></details>
-    <details><summary>Jitter nedir?</summary><div class="ans">Ping süresindeki dalgalanmadır; düşük olması kararlı bir bağlantı anlamına gelir.</div></details>
+    <details><summary>İnternet Hız Testi Sonuçları Ne Anlama Gelir?</summary><div class="ans">Sonuçlar üç temel veriyi ifade ediyor: Veriyi ne kadar hızlı çekebildiğiniz (download), ne kadar hızlı gönderebildiğiniz (upload) ve sunucunun komutunuza tepki verme süresi (ping).</div></details>
+    <details><summary>İnternet Hız Testinde Neye Bakılır?</summary><div class="ans">Temel olarak Download (indirme), upload (yükleme), ping (gecikme) ve bağlantıdaki dalgalanmayı gösteren Jitter değerlerine bakılıyor.</div></details>
+    <details><summary>İnternet Hızı Metrikleri Nelerdir?</summary><div class="ans">Hız ölçümü için Mbps (Megabit per second), gecikme süresi için ms (milisaniye) ve veri kaybı oranı için packet loss metrikleri kullanılıyor.</div></details>
+    <details><summary>Mbps Nedir?</summary><div class="ans">Mbps, saniyede aktarılan veri miktarını (Megabit) gösteren hız birimidir. Mbps test sonucu ne kadar yüksekse bağlantı kapasiteniz o kadar fazladır.</div></details>
+    <details><summary>Ping Nedir?</summary><div class="ans">Cihazınızdan çıkan verinin sunucuya gidip geri gelme süresidir. Online oyunlarda akıcılık için ping değerinin düşük olması (tercihen 20ms altı) önem taşıyor.</div></details>
+    <details><summary>Download Nedir?</summary><div class="ans">İnternet üzerindeki film, dosya, web sayfası, resim gibi verileri cihazınıza indirilmesi işlemidir.</div></details>
+    <details><summary>Upload Nedir?</summary><div class="ans">Cihazınızdaki fotoğraf, video, e-posta, dosya gibi verilerin internete yüklenmesi veya karşı tarafa gönderilmesidir.</div></details>
+    <details><summary>Download ve Upload Nedir?</summary><div class="ans">Download veri alma, Upload veri gönderme hızıdır. İnternet kullanımının büyük çoğunluğu download odaklıdır ancak interaktif işlemler upload gerektiriyor.</div></details>
+    <details><summary>Packet Loss Nedir?</summary><div class="ans">Veri paketlerinin hedefe ulaşamadan kaybolması durumudur. Bu sorun, online oyunlarda donmalara ve görüntülü görüşmelerde kesintilere yol açıyor.</div></details>
+    <details><summary>İnternet Hız Testindeki Jitter Nedir?</summary><div class="ans">Jitter, ping süresindeki düzensizliği ve zaman içindeki dalgalanmayı ifade ediyor. Jitter değerinin düşük olması bağlantının kararlı olduğunu gösteriyor.</div></details>
   </div>
 
   <h3 id="f4" class="cl"><span class="cl-n">4</span> İdeal Hız (Kaç Mbps Olmalı)</h3>
   <div class="faq">
-    <details><summary>İnternet hızı kaç olmalıdır?</summary><div class="ans">Kullanıma göre 16-1000 Mbps arasında değişir; "Hangi hız hangi kullanıma yeter" tablosuna bakın.</div></details>
-    <details><summary>İdeal internet hızı kaç Mbps olmalı?</summary><div class="ans">Temel kullanımda 16-24 Mbps; 4K yayın ve oyun için 100 Mbps ve üzeri idealdir.</div></details>
-    <details><summary>En yüksek internet hızı kaç Mbps olmalı?</summary><div class="ans">Fiber'de 1000 Mbps'ye kadar çıkar; yayıncılık ve kalabalık ev için en uygunudur.</div></details>
-    <details><summary>Download ve upload hızı kaç olmalı?</summary><div class="ans">İhtiyaca göre değişir; fiber bağlantıda eşit (simetrik) download/upload büyük avantajdır.</div></details>
+    <details><summary>İnternet Hızı Kaç Olmalıdır?</summary><div class="ans">Kullanım amacına göre değişiyor: E-posta ve haberler için 16-24 Mbps yeterliyken, 4K video ve büyük indirmeler için daha yüksek hızlar gerekiyor. İhtiyacınıza uygun seçenekleri ev interneti sayfamızdan inceleyebilirsiniz.</div></details>
+    <details><summary>İdeal İnternet Hızı Kaç Mbps (Mbit) Olmalı?</summary><div class="ans">Çok kullanıcılı evler için en az 50-100 Mbps arası ideal kabul ediliyor. Aynı anda oyun oynanan ve video izlenen evlerde fiber altyapı destekli 100 Mbps ve üzeri öneriliyor.</div></details>
+    <details><summary>En Yüksek İnternet Hızı Kaç Mbps Olmalı?</summary><div class="ans">Fiber altyapılarla ev kullanıcıları 1000 Mbps (1 Gigabit) hıza ulaşabiliyor. Bu hız, profesyonel kullanım, yayıncılık ve beklemesiz indirme işlemleri için mükemmel bir deneyim sunuyor.</div></details>
+    <details><summary>Download ve Upload Hızı Kaç Olmalı?</summary><div class="ans">Standart ev kullanıcıları için download 35-100 Mbps, upload ise 5-10 Mbps arası yeterli görülüyor. Yayıncılar ve içerik üreticileri için daha yüksek upload hızları gerekiyor.</div></details>
   </div>
 
   <h3 id="f5" class="cl"><span class="cl-n">5</span> Sorun Giderme &amp; Hızlandırma</h3>
   <div class="faq">
-    <details><summary>İnternet hızım neden düşük çıkıyor?</summary><div class="ans">Wi-Fi mesafesi, eski modem, çok sayıda cihaz, arka plan indirmeleri veya altyapı nedeniyle olabilir.</div></details>
-    <details><summary>İnternet hızımı yavaşlatan uygulamalar nelerdir?</summary><div class="ans">Bulut yedekleme, otomatik güncellemeler, torrent ve arka planda video akışı bant genişliğini tüketir.</div></details>
-    <details><summary>Hız testi hangi faktörlerden etkilenir?</summary><div class="ans">Seçilen sunucu, bağlantı türü, cihaz, Wi-Fi sinyali ve şebeke yoğunluğu sonucu etkiler.</div></details>
-    <details><summary>Hız testi sonucu neden değişkenlik gösterir?</summary><div class="ans">Şebeke yoğunluğu, sunucu ve anlık kullanım nedeniyle sonuç gün içinde değişebilir.</div></details>
-    <details><summary>Farklı cihazlarda sonuçlar neden farklı?</summary><div class="ans">Cihazların Wi-Fi/işlemci kapasitesi ve modem desteği farklı olduğu için sonuçlar değişir.</div></details>
-    <details><summary>İnternet nasıl hızlandırılır?</summary><div class="ans">Modemi yenileyin, Ethernet kullanın, cihaz sayısını azaltın; kalıcı çözüm daha yüksek hızlı bir Turkcell pakete geçmektir.</div></details>
+    <details><summary>İnternet Hızım Neden Düşük Çıkıyor?</summary><div class="ans">Hız düşüklüğünün başlıca nedenleri şunlardır: Altyapı yoğunluğu veya arızaları. Modem performansı veya yanlış konumu. Yetersiz Wi-Fi sinyali. Bina içi tesisat sorunları veya ADSL hız limitleri.</div></details>
+    <details><summary>İnternet Hızımı Yavaşlatan Uygulamalar Nelerdir?</summary><div class="ans">Torrent yazılımları, bulut yedekleme servisleri, işletim sistemi güncellemeleri ve 4K video akış servisleri bant genişliğini ciddi oranda tüketiyor.</div></details>
+    <details><summary>Hız Testi Hangi Faktörlerden Etkilenir?</summary><div class="ans">Sunucu mesafesi, anlık şebeke trafiği, cihaz donanımı, modem kalitesi ve bağlantı türü (kablolu/kablosuz) Turkcell hız testi sonucunu etkiliyor.</div></details>
+    <details><summary>Hız Testi Sonucu Neden Değişkenlik Gösterir?</summary><div class="ans">İnternet trafiği saatlik olarak değişebiliyor. Yoğun saatlerde veya Wi-Fi sinyalindeki anlık parazitlerde hızlarda dalgalanmalar olması normal karşılanıyor.</div></details>
+    <details><summary>Farklı Cihazlarda Hız Testi Sonuçları Neden Farklıdır?</summary><div class="ans">Her cihazın Wi-Fi alıcısı ve işlemci kapasitesi farklılık gösteriyor. Eski bir telefon ile yeni nesil bir laptop, aynı ağda olsalar bile farklı internet hızı sorgulama sonuçları verebiliyor.</div></details>
+    <details><summary>İnternet Hızlandırma Yolları Nelerdir?</summary><div class="ans">Hızınızı artırmak için şu yöntemleri deneyebilirsiniz: Modemi evin merkezi bir noktasına yerleştirin. Gereksiz cihazların Wi-Fi bağlantısını kesin. Tarayıcı geçmişini ve önbelleğini temizleyin.</div></details>
+    <details><summary>İnternet Hızını Neler Artırır?</summary><div class="ans">Wi-Fi yerine Ethernet kablosu kullanmak, DNS ayarlarını optimize etmek ve arka planda veri tüketen uygulamaları kapatmak performansı artırıyor.</div></details>
+    <details><summary>İnternet Nasıl Hızlandırılır?</summary><div class="ans">Öncelikle modeminizi resetleyerek ve sinyal güçlendirici kullanarak başlayabilirsiniz. Sorun devam ederse internet hız testi kaç olmalı sorusunun cevabına göre daha yüksek hızlı bir tarifeye geçiş yapabilirsiniz.</div></details>
   </div>
 
   <h3 id="f6" class="cl"><span class="cl-n">5G</span> Mobil &amp; 5G Hız Testi</h3>
