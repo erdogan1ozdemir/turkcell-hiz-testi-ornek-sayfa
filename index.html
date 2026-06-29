@@ -164,12 +164,20 @@ section.blk{padding:30px 0}
 .table-scroll{overflow-x:auto;margin:14px 0 8px}
 section.blk h3{margin-top:22px}
 
-/* mavi kart grid (klon: 'Turkcell'de Neler Var?') */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
-.qcard{background:var(--blue);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-lg);padding:16px;text-align:center;transition:.18s;color:#fff}
-.qcard:hover{transform:translateY(-3px);background:var(--blue-2);box-shadow:var(--shadow)}
-.qcard .ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.16);display:grid;place-items:center;margin:0 auto 9px;font-size:1.2rem}
-.qcard .t{font-weight:700;font-size:.92rem}.qcard .s{font-size:.73rem;color:rgba(255,255,255,.7)}
+/* mavi kart grid (klon: 'Turkcell'de Neler Var?') · geliştirilmiş */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:14px}
+.qcard{position:relative;display:flex;flex-direction:column;gap:11px;background:linear-gradient(160deg,rgba(28,55,202,.95),rgba(0,21,136,.95));border:1px solid rgba(255,255,255,.14);border-radius:var(--r-lg);padding:17px 16px 15px;text-align:left;transition:transform .2s,box-shadow .2s,border-color .2s;color:#fff;overflow:hidden}
+.qcard::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 78% at 0% 0%,rgba(255,255,255,.14),transparent 56%);pointer-events:none;z-index:0}
+.qcard>*{position:relative;z-index:1}
+.qcard:hover{transform:translateY(-4px);border-color:rgba(255,197,24,.55);box-shadow:0 16px 38px rgba(0,0,0,.42)}
+.qcard .ic{width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,rgba(255,255,255,.24),rgba(255,255,255,.07));border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;transition:.2s}
+.qcard:hover .ic{background:linear-gradient(150deg,var(--yellow),var(--yellow-deep));border-color:transparent}
+.qcard .ic svg{width:23px;height:23px;stroke:#fff;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:.2s}
+.qcard:hover .ic svg{stroke:#1a1a1a}
+.qcard .t{font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.qcard .t .ar{flex:none;opacity:0;transform:translateX(-5px);transition:.2s;color:var(--yellow);font-weight:800}
+.qcard:hover .t .ar{opacity:1;transform:translateX(0)}
+.qcard .s{font-size:.75rem;color:rgba(255,255,255,.74)}
 
 /* Superbox 5G banner (klon) */
 .banner{background:linear-gradient(120deg,var(--blue),#0a1f9e);border-radius:var(--r-lg);padding:24px;display:grid;grid-template-columns:1.4fr auto;gap:18px;align-items:center}
@@ -439,12 +447,14 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
   <h2>Turkcell'de neler var?</h2>
   <p class="desc">Tüm araç ve linkler Turkcell içinde (on-domain) · equity Turkcell'de kalır.</p>
   <div class="cards">
-    <a class="qcard" href="#"><div class="ic">📶</div><div class="t">Altyapı Sorgulama</div><div class="s">turkcell.com.tr</div></a>
-    <a class="qcard" href="#"><div class="ic">📍</div><div class="t">Ping Testi</div><div class="s">on-domain · KD 1</div></a>
-    <a class="qcard" href="#"><div class="ic">🌐</div><div class="t">IP Sorgulama</div><div class="s">yeni araç</div></a>
-    <a class="qcard" href="#"><div class="ic">🚀</div><div class="t">Superbox 5G</div><div class="s">Ön talep</div></a>
-    <a class="qcard" href="#"><div class="ic">📡</div><div class="t">Ev İnterneti</div><div class="s">Kampanyalar</div></a>
-    <a class="qcard" href="#"><div class="ic">🛒</div><div class="t">Pasaj</div><div class="s">Modem &amp; cihaz</div></a>
+    <a class="qcard" href="https://www.turkcell.com.tr/altyapi-sorgulama" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="t">Altyapı Sorgulama <span class="ar">→</span></div><div class="s">turkcell.com.tr</div></a>
+    <a class="qcard" href="https://www.turkcell.com.tr/internet-ping-testi" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="t">Ping Testi <span class="ar">→</span></div><div class="s">on-domain · KD 1</div></a>
+    <a class="qcard" href="https://www.turkcell.com.tr/ip-sorgulama" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20z"/></svg></div><div class="t">IP Sorgulama <span class="ar">→</span></div><div class="s">yeni araç</div></a>
+    <a class="qcard" href="https://www.turkcell.com.tr/superbox" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.79-.78.8-2.07.09-2.91a2.18 2.18 0 0 0-3.09-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></div><div class="t">Superbox 5G <span class="ar">→</span></div><div class="s">Ön talep</div></a>
+    <a class="qcard" href="https://www.turkcell.com.tr/ev-interneti" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div><div class="t">Ev İnterneti <span class="ar">→</span></div><div class="s">Kampanyalar</div></a>
+    <a class="qcard" href="https://www.turkcell.com.tr/fiber-internet" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div class="t">Fiber İnternet <span class="ar">→</span></div><div class="s">1000 Mbps'ye kadar</div></a>
+    <a class="qcard" href="https://www.turkcell.com.tr/mobil/tarifeler" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><div class="t">Mobil Tarifeler <span class="ar">→</span></div><div class="s">5G uyumlu</div></a>
+    <a class="qcard" href="https://www.turkcell.com.tr/pasaj" target="_blank" rel="noopener"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div class="t">Pasaj <span class="ar">→</span></div><div class="s">Modem &amp; cihaz</div></a>
   </div>
 </div></section>
 
