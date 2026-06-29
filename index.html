@@ -358,20 +358,32 @@ body[data-variant="e"] [data-only~="e"]{display:block}
 .pcard__buy{display:block;width:100%;text-align:center;background:var(--yellow-grad);color:#1a1a1a;font-weight:800;font-size:.95rem;padding:13px;border-radius:99px;border:none;margin-top:11px;cursor:pointer;font-family:inherit;transition:.16s}
 .pcard__buy:hover{background:var(--yellow-grad-hi)}
 
-/* --- Yan raylar (geniş ekran) · One Plus + 5G mini CTA --- */
+/* --- Yan ray (geniş ekran · sol) · One + 5G, varyanta göre --- */
 .siderail{display:none}
-.rail-card{background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);color:#fff}
+.rail-card{background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:var(--shadow);color:#fff}
+.rail-card+.rail-card{margin-top:14px}
 .rail-card .rk{font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--yellow);font-weight:800}
-.rail-card h4{font-size:1.04rem;margin:6px 0 6px;line-height:1.25}
-.rail-card p{font-size:.79rem;color:var(--ink-2);margin-bottom:13px;line-height:1.45}
-.rail-card .btn{width:100%;justify-content:center;font-size:.86rem;padding:11px 14px}
+.rail-card h4{font-size:1.02rem;margin:6px 0 6px;line-height:1.25}
+.rail-card p{font-size:.78rem;color:var(--ink-2);margin-bottom:12px;line-height:1.45}
+.rail-card .btn{width:100%;justify-content:center;font-size:.84rem;padding:10px 12px}
 .rail-card.g5{background:linear-gradient(160deg,#10256e,#001a8f)}
+.rail-logos{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:0 0 12px}
+.rail-logos img{width:100%;aspect-ratio:1;border-radius:7px;object-fit:cover;background:#0b0b0b;border:1px solid rgba(255,255,255,.12)}
+.rail-logos:empty{display:none}
 @media(min-width:1640px){
-  .siderail{display:block;position:fixed;top:50%;transform:translateY(-50%);z-index:40;width:206px}
-  .siderail.left{left:calc((100vw - 1180px)/2 - 222px)}
-  .siderail.right{right:calc((100vw - 1180px)/2 - 222px)}
+  .siderail{display:block;position:fixed;top:50%;transform:translateY(-50%);z-index:40;width:212px}
+  .siderail.left{left:calc((100vw - 1180px)/2 - 228px)}
   .vpick{top:auto;bottom:18px;transform:none}
 }
+/* paket kartı: tip etiketi + özellik listesi + link kart + 5G buton satırı */
+.tcone-scope a.pcard{text-decoration:none;color:var(--oc-ink)}
+.ptag{display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-size:.6rem;font-weight:800;padding:3px 9px;border-radius:99px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:7px}
+.pfeat{list-style:none;margin:0;padding:0}
+.pfeat li{position:relative;padding:6px 0 6px 20px;font-size:.82rem;color:#2a2f3a;border-bottom:1px solid var(--oc-line);line-height:1.4}
+.pfeat li:last-child{border-bottom:none}
+.pfeat li::before{content:"✓";position:absolute;left:0;color:#1d6f42;font-weight:800}
+.btnrow5{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+body[data-variant="e"] .oneplusSec{display:none}
 </style>
 </head>
 <body data-variant="a">
@@ -499,35 +511,12 @@ body[data-variant="e"] [data-only~="e"]{display:block}
       <div class="note">KVKK kapsamında bilgilerin yalnızca teklif için kullanılır. <b>Tekrarlı lead akışı</b> (hero + sonuç + sayfa sonu) · TurkNet modelinden uyarlandı. Yeni</div>
     </div></div>
 
-    <!-- E · PAKET KÖPRÜSÜ (sonuç → Turkcell One Plus upsell) -->
+    <!-- E · SANA UYGUN PAKETLER (sonuç → paket köprüsü: One + 5G hat + ev interneti) -->
     <div data-only="e"><div class="smart">
-      <div class="eyebrow">Sana Özel Köprü</div>
-      <div class="reco" style="font-size:1.25rem;margin-bottom:4px">Mevcut hızın <b id="recoSpeedE">48</b> Mbps · bu hızla <b style="color:var(--yellow)">Turkcell One Plus</b> servislerini akıcı kullanırsın.</div>
-      <p style="color:var(--ink-2);font-size:.9rem;margin-bottom:16px">İnternet + TV+ + dizi/film + müzik + bulut tek pakette, 12 ay sabit fiyat garantisiyle.</p>
-      <div class="tcone-scope" style="max-width:330px;margin:0 auto">
-        <div class="pcard feat">
-          <div class="pcard__head"><h3>Turkcell One Plus</h3><span class="feat-rib">En Çok Tercih Edilen</span></div>
-          <div class="pcard__body">
-            <div class="inc-label">Pakete dahil platformlar</div>
-            <div class="plats">
-              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-tvplus.png" alt="TV+" loading="lazy">
-              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-hbo.png" alt="HBO Max" loading="lazy">
-              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-netflix-standart.png" alt="Netflix" loading="lazy">
-              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-amazonprime.png" alt="Amazon Prime" loading="lazy">
-              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-ytpremium.png" alt="YouTube Premium" loading="lazy">
-              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-ytmusic.png" alt="YouTube Music" loading="lazy">
-              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-fizy.png" alt="fizy" loading="lazy">
-              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-wonjo.png" alt="Wonjo Kids" loading="lazy">
-              <img src="https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/pl-lifebox.png" alt="Lifebox" loading="lazy">
-            </div>
-            <div class="hl-row"><span class="chip-tier">Netflix Standart</span><span class="chip-fix">✓ 12 ay sabit fiyat</span></div>
-            <div class="pcard__foot">
-              <div class="pcard__price">600 TL<small> · 12 ay sabit fiyat garantisi</small></div>
-              <button class="pcard__buy" type="button" onclick="alert('Demo: Turkcell One Plus satın alma akışına yönlendirir.')">Şimdi Satın Al</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="eyebrow">Sana Uygun Paketler</div>
+      <div class="reco" style="font-size:1.25rem;margin-bottom:4px">Mevcut hızın <b id="recoSpeedE">48</b> Mbps · sana uygun Turkcell paketleri ve yükseltme seçenekleri</div>
+      <p style="color:var(--ink-2);font-size:.9rem;margin-bottom:8px">Eğlence, mobil 5G ve ev interneti için sana en uygun paketleri yan yana karşılaştır.</p>
+      <div class="tcone-scope"><div class="tcone-rail" id="bridgeRail"></div></div>
     </div></div>
   </div>
 
@@ -574,10 +563,10 @@ body[data-variant="e"] [data-only~="e"]{display:block}
   </table></div>
 </div></section>
 
-<!-- ====== TURKCELL ONE · CTA KAROSEL (paket köprüsü · one-paketler reposundan) ====== -->
-<section class="blk"><div class="wrap oneplus-sec">
-  <div class="oneplus-head"><span class="pill">Sana özel</span><h2 style="margin:0">Mevcut hızınla <span class="y">Turkcell One</span> ile daha fazlası</h2></div>
-  <p class="desc" id="oneIntro">İnternetine TV+, dizi/film, müzik ve bulutu ekle; tek faturada, 12 ay sabit fiyat garantisiyle.</p>
+<!-- ====== SANA UYGUN PAKETLER · CTA KAROSEL (One + 5G hat + ev interneti) · E varyantında gizli ====== -->
+<section class="blk oneplusSec"><div class="wrap oneplus-sec">
+  <div class="oneplus-head"><span class="pill">Sana özel</span><h2 style="margin:0">Mevcut hızınla <span class="y">daha fazlası</span>: sana uygun Turkcell paketleri</h2></div>
+  <p class="desc" id="oneIntro">Eğlence, mobil 5G ve ev interneti paketlerini ölçülen hızına göre değerlendir; tek faturada, 12 ay sabit fiyat garantisiyle.</p>
   <div class="tcone-scope"><div class="tcone-rail" id="oneRail"></div></div>
 </div></section>
 
@@ -592,14 +581,17 @@ body[data-variant="e"] [data-only~="e"]{display:block}
   <div>
     <span class="b5">5G · MOBİL</span>
     <h3>Mobil ve 5G hız testi</h3>
-    <p style="color:var(--ink-2)">Aramaların %76–96'sı mobil. Turkcell 5G ile gecikme milisaniyelere iner, indirme kat kat hızlanır. Mobil testte en doğru sonuç için Turkcell sunucusunu seç.</p>
-    <a class="btn btn-y" href="#" style="margin-top:10px">Turkcell 5G'yi Keşfet →</a>
+    <p style="color:var(--ink-2)">Aramaların %76–96'sı mobil. Turkcell 5G ile gecikme milisaniyelere iner, indirme kat kat hızlanır. <b style="color:#fff">Mobilde 5G ile en yüksek hız için Turkcell'i tercih et.</b></p>
+    <div class="btnrow5">
+      <a class="btn btn-y glow" href="https://www.turkcell.com.tr/5g" target="_blank" rel="noopener">Turkcell 5G'yi Keşfet →</a>
+      <a class="btn btn-o" href="https://www.turkcell.com.tr/paket-ve-tarifeler/yeni-musteri-paketleri/5g-ultra-platinum-60-gb" target="_blank" rel="noopener">5G paketlerini incele</a>
+    </div>
   </div>
   <ul>
     <li>5G ortalama hız: mevcut mobilin kat kat üzeri</li>
     <li>Ping &lt; 10 ms: oyun ve canlı yayında kesintisiz</li>
-    <li>Superbox 5G: altyapı beklemeden</li>
-    <li>5G her yerde aynı mı? Kapsama + cihaza bağlı</li>
+    <li>Superbox 5G: altyapı beklemeden, kurulumsuz</li>
+    <li>En doğru mobil sonuç için Turkcell 5G şebekesini tercih et</li>
   </ul>
 </div></div></section>
 
@@ -846,21 +838,20 @@ body[data-variant="e"] [data-only~="e"]{display:block}
   <div class="fbar"><span>© 2026 Turkcell · Tasarım örneği (demo) · Inbound</span><span>Hız Testi LP · CRO/dönüşüm varyantları</span></div>
 </div></footer>
 
-<!-- ====== YAN RAYLAR (geniş ekran · One + 5G mini CTA) ====== -->
-<aside class="siderail left" aria-hidden="true">
-  <div class="rail-card">
-    <div class="rk">Sana özel</div>
-    <h4>Turkcell One Plus</h4>
-    <p>Mevcut hızınla internet + TV+ + dizi/film + müzik tek pakette. 12 ay sabit fiyat.</p>
+<!-- ====== YAN RAY (geniş ekran · SOL · One + 5G · varyanta göre şekillenir) ====== -->
+<aside class="siderail left" aria-hidden="true" id="leftRail">
+  <div class="rail-card" id="railOne">
+    <div class="rk" id="railOneK">Sana özel</div>
+    <h4 id="railOneT">Turkcell One Plus</h4>
+    <p id="railOneP">Mevcut hızınla internet + TV+ + dizi/film + müzik tek pakette. 12 ay sabit fiyat.</p>
+    <div class="rail-logos" id="railOneLogos"></div>
     <a class="btn btn-y btn-sm" href="#oneRail">Paketi incele →</a>
   </div>
-</aside>
-<aside class="siderail right" aria-hidden="true">
-  <div class="rail-card g5">
+  <div class="rail-card g5" id="rail5g">
     <div class="rk">5G · Mobil</div>
-    <h4>Turkcell 5G</h4>
-    <p>Gecikme milisaniyelere insin, indirme kat kat hızlansın. Her yerde fiber hızı.</p>
-    <a class="btn btn-y btn-sm" href="#">5G'yi keşfet →</a>
+    <h4 id="rail5gT">Turkcell 5G</h4>
+    <p id="rail5gP">Gecikme milisaniyelere insin, indirme kat kat hızlansın. Her yerde fiber hızı.</p>
+    <a class="btn btn-o btn-sm" href="https://www.turkcell.com.tr/5g" target="_blank" rel="noopener">5G'yi keşfet →</a>
   </div>
 </aside>
 
@@ -871,7 +862,7 @@ body[data-variant="e"] [data-only~="e"]{display:block}
   <button class="vbtn" data-v="b"><span class="k">B</span>Hız Karnesi<small>download/upload/ping karne</small></button>
   <button class="vbtn" data-v="c"><span class="k">C</span>Değer / Paket<small>karşılaştırma + fiyat</small></button>
   <button class="vbtn" data-v="d"><span class="k">D</span>Lead / Altyapı<small>form ile lead toplama</small></button>
-  <button class="vbtn" data-v="e"><span class="k">E</span>Paket Köprüsü<small>One Plus upsell</small></button>
+  <button class="vbtn" data-v="e"><span class="k">E</span>Sana Uygun Paketler<small>One · 5G hat · ev interneti</small></button>
   <div class="hint">#v=a · localStorage</div>
 </div>
 
@@ -884,7 +875,8 @@ body[data-variant="e"] [data-only~="e"]{display:block}
     try{history.replaceState(null,'','#v='+v);}catch(e){}
     document.querySelectorAll('.vbtn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-v')===v);});
     var oi=document.getElementById('oneIntro');
-    if(oi){var ot={a:'Akıllı öneri: ölçülen hızınla bu paketlerdeki tüm servisleri akıcı kullanırsınız.',b:'Hız karnenize göre internet + TV+ + dizi/film + müzik tek pakette; en uygununu seçin.',c:'Paketleri yan yana karşılaştırın; hepsi 12 ay sabit fiyat garantili.',d:'Adresinize uygun en hızlı interneti One paketleriyle birleştirin.',e:'Mevcut hızınızla One Plus tüm servisleri akıcı kullanır; tek faturada toplayın.'};oi.textContent=ot[v]||ot.a;}
+    if(oi){var ot={a:'Akıllı öneri: ölçülen hızınla bu paketlerdeki tüm servisleri akıcı kullanırsınız.',b:'Hız karnenize göre internet + TV+ + dizi/film + müzik tek pakette; en uygununu seçin.',c:'Paketleri yan yana karşılaştırın; hepsi 12 ay sabit fiyat garantili.',d:'Adresinize uygun en hızlı interneti paketlerle birleştirin.',e:'Eğlence, mobil 5G ve ev interneti paketlerini sonuç alanında karşılaştırın.'};oi.textContent=ot[v]||ot.a;}
+    if(typeof paintRail==='function'&&typeof RAIL!=='undefined')paintRail(v);
     if(document.getElementById('resultPanel').classList.contains('show'))paint();}
   document.querySelectorAll('.vbtn').forEach(function(b){b.addEventListener('click',function(){setV(b.getAttribute('data-v'));});});
   window.addEventListener('hashchange',function(){setV(curV());});
@@ -931,27 +923,57 @@ body[data-variant="e"] [data-only~="e"]{display:block}
   if(go)go.addEventListener('click',run);
   setV(curV());
 
-  /* Turkcell One karosel render (one-paketler reposundan · 3 paket) */
+  /* Sana uygun paketler karosel render · 3 farklı tip (One eğlence / 5G hat / ev interneti) · gerçek Turkcell verisi */
+  var PKGBASE='https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/';
+  var ONE_LOGOS=['pl-tvplus.png','pl-hbo.png','pl-netflix-standart.png','pl-amazonprime.png','pl-ytpremium.png','pl-ytmusic.png','pl-fizy.png','pl-wonjo.png','pl-lifebox.png'];
+  var PKGS3=[
+    {type:'one',tag:'Eğlence',name:'Turkcell One Premium',rib:'En Çok Tercih Edilen',feat:true,
+     chip:'Netflix Premium',price:'690 TL',cta:'İncele',
+     url:'https://www.turkcell.com.tr/paket-ve-tarifeler/turkcell-one/turkcell-one-premium'},
+    {type:'feat',tag:'Mobil 5G',name:'5G Ultra Platinum 60 GB',rib:'',feat:false,
+     features:['60 GB (30 GB 5G + 30 GB sosyal)','5.000 dk + Turkcell’lilerle sınırsız','BiP &amp; WhatsApp sınırsız','5’er GB TV+ / fizy / Lifebox'],
+     chip:'5G',price:'1.000 TL',cta:'Paketi seç',
+     url:'https://www.turkcell.com.tr/paket-ve-tarifeler/yeni-musteri-paketleri/5g-ultra-platinum-60-gb'},
+    {type:'feat',tag:'Ev İnterneti',name:'Superbox 5G 500 GB',rib:'',feat:false,
+     features:['5G hızında (1000 Mbps ve üzeri)','Aylık 500 GB','Taahhütsüz, istediğin an iptal','Modem dahil, kurulumsuz'],
+     chip:'Kablosuz',price:'1.465 TL',cta:'Başvur',
+     url:'https://www.turkcell.com.tr/ev-interneti/bireysel-superbox-tarife-detaylari'}
+  ];
+  function pkgCard(p){
+    var body;
+    if(p.type==='one'){
+      body='<div class="inc-label">Pakete dahil platformlar</div><div class="plats">'+ONE_LOGOS.map(function(l){return '<img src="'+PKGBASE+l+'" alt="" loading="lazy">';}).join('')+'</div>';
+    } else {
+      body='<div class="inc-label">Pakete dahil</div><ul class="pfeat">'+p.features.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
+    }
+    return '<a class="pcard'+(p.feat?' feat':'')+'" href="'+p.url+'" target="_blank" rel="noopener">'
+      +'<div class="pcard__head"><span class="ptag">'+p.tag+'</span><h3>'+p.name+'</h3>'+(p.rib?'<span class="feat-rib">'+p.rib+'</span>':'')+'</div>'
+      +'<div class="pcard__body">'+body
+      +'<div class="hl-row"><span class="chip-tier">'+p.chip+'</span><span class="chip-fix">✓ 12 ay sabit fiyat</span></div>'
+      +'<div class="pcard__foot"><div class="pcard__price">'+p.price+'<small> /ay</small></div>'
+      +'<span class="pcard__buy">'+p.cta+'</span></div></div></a>';
+  }
   (function(){
-    var rail=document.getElementById('oneRail');if(!rail)return;
-    var B='https://raw.githubusercontent.com/erdogan1ozdemir/turkcell-one-paketler-html/main/assets/';
-    var L={tvplus:['pl-tvplus.png','TV+'],hbo:['pl-hbo.png','HBO Max'],net:['pl-netflix-standart.png','Netflix'],amz:['pl-amazonprime.png','Amazon Prime'],ytp:['pl-ytpremium.png','YouTube Premium'],ytm:['pl-ytmusic.png','YouTube Music'],fizy:['pl-fizy.png','fizy'],wonjo:['pl-wonjo.png','Wonjo Kids'],life:['pl-lifebox.png','Lifebox']};
-    var PKG=[
-      {name:'Turkcell One',rib:'',tier:'TV+ Süper',price:'400 TL',plats:['tvplus','ytm','fizy','life'],feat:false},
-      {name:'Turkcell One Plus',rib:'En Çok Tercih Edilen',tier:'Netflix Standart',price:'600 TL',plats:['tvplus','hbo','net','amz','ytp','ytm','fizy','wonjo','life'],feat:true},
-      {name:'Turkcell One Pro',rib:'En Kapsamlı',tier:'Netflix Premium',price:'850 TL',plats:['tvplus','hbo','net','amz','ytp','ytm','fizy','wonjo','life'],feat:false}
-    ];
-    function tiles(ks){return ks.map(function(k){return '<img src="'+B+L[k][0]+'" alt="'+L[k][1]+'" loading="lazy">';}).join('');}
-    rail.innerHTML=PKG.map(function(p){
-      return '<div class="pcard'+(p.feat?' feat':'')+'">'
-        +'<div class="pcard__head"><h3>'+p.name+'</h3>'+(p.rib?'<span class="feat-rib">'+p.rib+'</span>':'')+'</div>'
-        +'<div class="pcard__body"><div class="inc-label">Pakete dahil platformlar</div>'
-        +'<div class="plats">'+tiles(p.plats)+'</div>'
-        +'<div class="hl-row"><span class="chip-tier">'+p.tier+'</span><span class="chip-fix">✓ 12 ay sabit fiyat</span></div>'
-        +'<div class="pcard__foot"><div class="pcard__price">'+p.price+'<small> /ay · 12 ay sabit</small></div>'
-        +'<button class="pcard__buy" type="button">Şimdi Satın Al</button></div></div></div>';
-    }).join('');
+    var html=PKGS3.map(pkgCard).join('');
+    ['oneRail','bridgeRail'].forEach(function(id){var el=document.getElementById(id);if(el)el.innerHTML=html;});
   })();
+
+  /* Sol yan ray içeriği · varyanta göre (bazı varyantlarda logolar, bazılarında farklı açıklama) */
+  var RAIL={
+    a:{k:'Akıllı öneri',t:'Turkcell One Premium',p:'Ölçülen hızınla TV+, dizi/film ve müzik tek pakette akıcı.',logos:true,g5:'Mobilde de fiber hızı; 5G ile her yerde kesintisiz.'},
+    b:{k:'Hız karnene göre',t:'Turkcell One',p:'Karnendeki hıza uygun eğlence paketini seç, tek faturada topla.',logos:false,g5:'Mobil hızını yükseltmek için 5G şebekesini tercih et.'},
+    c:{k:'Fiyat / değer',t:'Turkcell One Premium',p:'Tek faturada en çok servis; 12 ay sabit fiyat garantisi.',logos:true,g5:'5G Ultra Platinum: 60 GB + sınırsız mesajlaşma.'},
+    d:{k:'Adresine özel',t:'Ev İnterneti + One',p:'Altyapına uygun en hızlı interneti One paketiyle birleştir.',logos:false,g5:'Superbox 5G: altyapı beklemeden, kurulumsuz internet.'},
+    e:{k:'Sana uygun',t:'Paketleri karşılaştır',p:'One, 5G hat ve ev interneti seçenekleri sonuç alanında yan yana.',logos:true,g5:'5G ile en yüksek mobil hız için Turkcell.'}
+  };
+  function paintRail(v){
+    var r=RAIL[v]||RAIL.a;
+    var set=function(id,val){var e=document.getElementById(id);if(e)e.textContent=val;};
+    set('railOneK',r.k);set('railOneT',r.t);set('railOneP',r.p);set('rail5gP',r.g5);
+    var lg=document.getElementById('railOneLogos');
+    if(lg)lg.innerHTML=r.logos?ONE_LOGOS.slice(0,5).map(function(l){return '<img src="'+PKGBASE+l+'" alt="" loading="lazy">';}).join(''):'';
+  }
+  paintRail(curV());
 
   /* interaktif FAQ · yumuşak aç/kapa animasyonu (max-height) */
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
