@@ -44,6 +44,16 @@ h1,h2,h3{font-weight:800;line-height:1.12}
 .btn-o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45);padding:11px 18px}
 .btn-o:hover{border-color:var(--yellow);color:var(--yellow)}
 .btn-lg{padding:15px 28px;font-size:1.04rem}.btn-sm{padding:9px 15px;font-size:.84rem}
+/* conic-glow CTA · etrafında dönen parlayan çizgi (referans bileşen galerisinden uyarlandı) */
+@keyframes btnspin{to{transform:rotate(1turn)}}
+.btn.glow{position:relative;isolation:isolate}
+.btn.glow::before{content:"";position:absolute;inset:-2px;border-radius:inherit;z-index:-2;background:conic-gradient(from 0deg,transparent 0 68%,#fff 80%,#8fe0ff 88%,var(--blue) 94%,transparent 100%);animation:btnspin 3.6s linear infinite}
+.btn.glow::after{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;background:var(--yellow)}
+.btn-w.glow::after{background:#fff}
+.btn-o.glow{background:var(--navy-2)}
+.btn-o.glow::after{background:var(--navy-2)}
+.btn.glow:hover::before{animation-duration:1.6s}
+@media(prefers-reduced-motion:reduce){.btn.glow::before{animation:none;background:conic-gradient(from 0deg,transparent 0 70%,#8fe0ff 85%,transparent 100%)}}
 
 /* ---- header (klon: minimal, sadece logo) ---- */
 header.site{position:sticky;top:0;z-index:50;background:rgba(0,16,67,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -175,13 +185,15 @@ h3.cl{display:flex;align-items:center;gap:10px;margin:22px 0 10px;scroll-margin-
 .content-block .lead-p{color:var(--ink);font-size:1.02rem;line-height:1.7}
 .content-block h3{margin:20px 0 6px;font-size:1.08rem}
 .content-block p{color:var(--ink-2);margin:8px 0;line-height:1.66}
-.readmore{margin-top:12px}
-.readmore>summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;list-style:none;color:var(--navy);font-weight:800;font-size:.9rem;background:var(--yellow);border:none;border-radius:var(--r-pill);padding:10px 18px}
+.readmore{margin-top:20px;text-align:center;position:relative}
+.readmore::before{content:"";position:absolute;left:0;right:0;top:15px;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+.readmore>summary{position:relative;display:inline-flex;align-items:center;gap:9px;cursor:pointer;list-style:none;color:var(--ink-2);font-weight:700;font-size:.82rem;letter-spacing:.01em;padding:8px 20px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--navy-2);transition:color .2s,border-color .2s,box-shadow .2s}
+.readmore>summary:hover{color:var(--yellow);border-color:rgba(255,197,24,.5);box-shadow:0 4px 16px rgba(0,0,0,.25)}
 .readmore>summary::-webkit-details-marker{display:none}
-.readmore>summary::after{content:"▾";font-size:.8em}
-.readmore[open]>summary::after{content:"▴"}
-.readmore[open]>summary{margin-bottom:10px}
-.readmore .more{border-top:1px solid var(--line-2);padding-top:6px}
+.readmore>summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .22s}
+.readmore[open]>summary::after{transform:rotate(-135deg) translateY(2px)}
+.readmore[open]>summary{margin-bottom:16px}
+.readmore .more{padding-top:0;text-align:left}
 .content-block a,.faq .ans a{color:var(--yellow);text-decoration:underline;text-underline-offset:2px;font-weight:600}
 .fnav{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:4px 0 22px;border-bottom:1px solid var(--line);margin-bottom:18px}
 .fnav h4{font-size:.78rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;margin:0 0 10px}
@@ -229,7 +241,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
     </a>
     <div class="right">
       <span class="x">turkcell.com.tr</span>
-      <a class="btn btn-y btn-sm" href="#">Online İşlemler</a>
+      <a class="btn btn-y btn-sm glow" href="#">Online İşlemler</a>
     </div>
   </div>
 </header>
@@ -246,7 +258,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
       <span class="tip"><span class="i">2</span> Ethernet kullan</span>
       <span class="tip"><span class="i">3</span> İndirmeleri durdur</span>
     </div>
-    <div data-only="d" style="margin-top:18px"><a class="btn btn-y btn-lg" href="#lead">Adresimde hangi hız var? Sorgula →</a></div>
+    <div data-only="d" style="margin-top:18px"><a class="btn btn-y btn-lg glow" href="#lead">Adresimde hangi hız var? Sorgula →</a></div>
   </div>
   <div class="gauge-card">
     <div class="gauge" id="gauge"><button class="go" id="goBtn">GO</button></div>
@@ -266,7 +278,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
     <div class="lead" style="text-align:center;margin-bottom:16px">
       <div class="reco" style="font-weight:800;font-size:1.4rem">Testin bitti. Şimdi sana en uygun hızı bulalım.</div>
       <p style="color:var(--ink-2);margin-top:4px">Sonucuna göre en uygun Turkcell internetini birlikte seçelim.</p>
-      <a class="btn btn-y btn-lg" href="#lead" style="margin-top:10px">Bana Uygun Paketi Bul →</a>
+      <a class="btn btn-y btn-lg glow" href="#lead" style="margin-top:10px">Bana Uygun Paketi Bul →</a>
     </div>
     <div class="result-head">
       <span class="badge">✓ Test tamamlandı</span>
@@ -279,7 +291,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
       <div class="reco">Hızın <b id="recoSpeed">48</b> Mbps. <span id="recoMsg">4K yayın ve online oyun için <b>Turkcell Fiber 100</b> seni rahatlatır.</span></div>
       <p style="color:var(--ink-2);font-size:.9rem" id="recoSub">Mevcut hızın yoğun saatlerde kalabalık bir evde zorlanabilir. Daha yüksek ve kararlı hız için aşağıdaki paket öneriliyor.</p>
       <div class="pkgs">
-        <div class="pkg best"><span class="tag">SANA ÖNERİLEN</span><div class="name">Fiber 100</div><div class="spd">100 Mbps</div><div class="price">799 TL<span style="font-size:.8rem">/ay</span></div><ul><li>Wi-Fi 6 modem dahil</li><li>12 ay fiyat garantisi</li><li>Ücretsiz kurulum</li></ul><a class="btn btn-y" href="#">Hemen Başvur</a></div>
+        <div class="pkg best"><span class="tag">SANA ÖNERİLEN</span><div class="name">Fiber 100</div><div class="spd">100 Mbps</div><div class="price">799 TL<span style="font-size:.8rem">/ay</span></div><ul><li>Wi-Fi 6 modem dahil</li><li>12 ay fiyat garantisi</li><li>Ücretsiz kurulum</li></ul><a class="btn btn-y glow" href="#">Hemen Başvur</a></div>
         <div class="pkg"><span class="tag alt">EN HIZLI</span><div class="name">Fiber 1000</div><div class="spd">1000 Mbps</div><div class="price">1.149 TL<span style="font-size:.8rem">/ay</span></div><ul><li>Eşit download/upload</li><li>Oyuncu &amp; yayıncı için</li><li>Wi-Fi 6 modem</li></ul><a class="btn btn-o" href="#">İncele</a></div>
         <div class="pkg"><span class="tag alt">MOBİL</span><div class="name">Superbox 5G</div><div class="spd">5G hız</div><div class="price">Kurulumsuz</div><ul><li>Taşınabilir internet</li><li>Altyapı beklemeden</li><li>Hemen kullan</li></ul><a class="btn btn-o" href="#">İncele</a></div>
       </div>
@@ -289,7 +301,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
     <div data-only="b"><div class="smart" style="text-align:center">
       <div class="reco" style="font-size:1.7rem">Hızın <b id="recoSpeedB">48</b> Mbps</div>
       <p style="color:var(--ink-2)">Bağlantın çalışıyor. Daha hızlısını ister misin?</p>
-      <a class="btn btn-y btn-lg" href="#" style="margin-top:12px">Altyapımı sorgula, hızımı yükselt →</a>
+      <a class="btn btn-y btn-lg glow" href="#" style="margin-top:12px">Altyapımı sorgula, hızımı yükselt →</a>
     </div></div>
 
     <!-- C · DEĞER/PAKET -->
@@ -303,7 +315,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
       <p style="text-align:center;color:var(--yellow);font-weight:800;margin:12px 0" id="cMsg">Turkcell ile ~21 kat daha hızlı internet mümkün.</p>
       <div class="pkgs">
         <div class="pkg"><div class="name">Fiber 200</div><div class="spd">200 Mbps</div><div class="price"><s>949 TL</s> 799 TL<span style="font-size:.8rem">/ay</span></div><ul><li>~%16 indirimli</li><li>Wi-Fi 6 modem</li></ul><a class="btn btn-o" href="#">Başvur</a></div>
-        <div class="pkg best"><span class="tag">EN ÇOK TERCİH</span><div class="name">Fiber 1000</div><div class="spd">1000 Mbps</div><div class="price">1.149 TL<span style="font-size:.8rem">/ay</span></div><ul><li>Eşit up/down</li><li>12 ay fiyat garantisi</li><li>Ücretsiz kurulum</li></ul><a class="btn btn-y" href="#">Hemen Başvur</a></div>
+        <div class="pkg best"><span class="tag">EN ÇOK TERCİH</span><div class="name">Fiber 1000</div><div class="spd">1000 Mbps</div><div class="price">1.149 TL<span style="font-size:.8rem">/ay</span></div><ul><li>Eşit up/down</li><li>12 ay fiyat garantisi</li><li>Ücretsiz kurulum</li></ul><a class="btn btn-y glow" href="#">Hemen Başvur</a></div>
         <div class="pkg"><div class="name">Superbox 5G</div><div class="spd">5G</div><div class="price">Kurulumsuz</div><ul><li>Altyapı beklemeden</li><li>Taşınabilir</li></ul><a class="btn btn-o" href="#">İncele</a></div>
       </div>
     </div>
@@ -316,7 +328,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
       <div class="row">
         <input type="text" placeholder="Adın Soyadın" aria-label="Ad Soyad">
         <input type="tel" placeholder="Telefon numaran" aria-label="Telefon">
-        <button class="btn btn-y" type="button" onclick="alert('Demo: lead formu · gerçekte Turkcell CRM/başvuruya bağlanır.')">Seni Arayalım</button>
+        <button class="btn btn-y glow" type="button" onclick="alert('Demo: lead formu · gerçekte Turkcell CRM/başvuruya bağlanır.')">Seni Arayalım</button>
       </div>
       <div class="row" style="margin-top:6px">
         <input type="text" placeholder="Adres / il-ilçe ile altyapı sorgula" aria-label="Adres" style="flex:2">
@@ -372,7 +384,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
 <!-- ====== SUPERBOX 5G BANNER (klon) ====== -->
 <section class="blk"><div class="wrap"><div class="banner">
   <div><h3>Fiber hızında, Turkcell gücünde <span class="y">Superbox 5G!</span></h3><p style="color:rgba(255,255,255,.85);margin-top:6px">Altyapı beklemeden, kurulumsuz, taşınabilir yeni nesil ev interneti.</p></div>
-  <a class="btn btn-y btn-lg" href="#">Kampanyaları Keşfet</a>
+  <a class="btn btn-y btn-lg glow" href="#">Kampanyaları Keşfet</a>
 </div></div></section>
 
 <!-- ====== 5G/MOBİL (öneri +★) ====== -->
