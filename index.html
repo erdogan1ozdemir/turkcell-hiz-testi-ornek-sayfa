@@ -170,6 +170,18 @@ h3.cl{display:flex;align-items:center;gap:10px;margin:22px 0 10px;scroll-margin-
 .faq .ans{padding:0 16px 14px;color:var(--ink-2);font-size:.9rem}
 .faq summary:hover{background:var(--navy-card)}
 
+/* içerik bloğu · ilk paragraf görünür, gerisi 'Devamını oku' ile açılır */
+.content-block .lead-p{color:var(--ink);font-size:1.02rem;line-height:1.7}
+.content-block h3{margin:20px 0 6px;font-size:1.08rem}
+.content-block p{color:var(--ink-2);margin:8px 0;line-height:1.66}
+.readmore{margin-top:12px}
+.readmore>summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;list-style:none;color:var(--navy);font-weight:800;font-size:.9rem;background:var(--yellow);border:none;border-radius:var(--r-pill);padding:10px 18px}
+.readmore>summary::-webkit-details-marker{display:none}
+.readmore>summary::after{content:"▾";font-size:.8em}
+.readmore[open]>summary::after{content:"▴"}
+.readmore[open]>summary{margin-bottom:10px}
+.readmore .more{border-top:1px solid var(--line-2);padding-top:6px}
+
 /* footer (klon: minimal + Bizi Takip Edin) */
 footer.site{background:var(--navy-3);border-top:1px solid var(--line);margin-top:22px;padding:26px 0 22px}
 .frow{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
@@ -381,6 +393,35 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
     <a class="qcard" href="#"><div class="ic">📡</div><div class="t">Ev İnterneti</div><div class="s">Kampanyalar</div></a>
     <a class="qcard" href="#"><div class="ic">🛒</div><div class="t">Pasaj</div><div class="s">Modem &amp; cihaz</div></a>
   </div>
+</div></section>
+
+<!-- ====== İÇERİK · canlıdan scrape + brief ile yenilendi · ilk paragraf görünür ====== -->
+<section class="blk"><div class="wrap content-block">
+  <div class="eyebrow">Hız Testi Rehberi</div>
+  <h2>İnternet hız testi ile <span class="y">bağlantı kalitenizi</span> ölçün</h2>
+  <p class="lead-p">İnternet bağlantınızın kalitesini ölçmek, kesintisiz bir online deneyim için önemlidir. Turkcell internet hız testi; güçlü altyapısı sayesinde indirme (download), yükleme (upload), ping ve jitter değerlerinizi saniyeler içinde gösterir. Sonuca göre performans sorunlarını anında görebilir, size en uygun Turkcell internetini birlikte belirleyebilirsiniz.</p>
+  <details class="readmore">
+    <summary>Devamını oku</summary>
+    <div class="more">
+      <h3>İnternet Hız Testi (Speed Test) Nedir?</h3>
+      <p>Speed test, internet bağlantısının performansını ve kalitesini ölçen bir araçtır. ADSL, VDSL, fiber ve Wi-Fi hız testi; indirme, yükleme ve ping değerlerini ölçerek bağlantınızın ne kadar hızlı ve kararlı olduğunu ortaya koyar. Sonuçlar oyun, video izleme ve dosya indirme gibi aktivitelerdeki performansınızı anlamanıza yardımcı olur; servis sağlayıcınızın vadettiği hızı alıp almadığınızı da gözlemleyebilirsiniz.</p>
+
+      <h3>İnternet Hızı Nasıl Ölçülür?</h3>
+      <p>Hız testi, cihazınız ile sunucu arasında veri alışverişi yaparak hızınızı saniyedeki megabit (Mbps) cinsinden hesaplar. En doğru sonuç için kablolu (Ethernet) bağlantı kullanın, Turkcell sunucusunu seçin, arka plan uygulamalarını kapatın ve testi birkaç kez tekrarlayın.</p>
+
+      <h3>Turkcell İnternet Hız Testinin Avantajları</h3>
+      <p>Hızlı ve net sonuçlar vererek altyapı performansınızı kontrol etmenizi ve olası bağlantı sorunlarını tespit etmenizi sağlar. Hızınızın yetersiz olduğunu düşünüyorsanız altyapı sorgulama ile bölgenizdeki maksimum hızı öğrenebilir; altyapınız uygunsa daha yüksek hızlı fiber paketlerine ya da kurulumsuz Superbox 5G'ye geçişi değerlendirebilirsiniz.</p>
+
+      <h3>Tüm Cihazlardan Kolay Erişim</h3>
+      <p>Çevrim içi bir hizmet olduğu için uygulama indirmeden bilgisayar, akıllı telefon ve tabletten erişilir. Mobil internet hız testini tarayıcıdan başlatabilir; ister Wi-Fi ister kablolu bağlantınızı, ADSL veya fiber ölçümünü tek tıkla yapabilirsiniz.</p>
+
+      <h3>Mobil ve 5G Hız Testi</h3>
+      <p>Hız testi aramalarının büyük kısmı mobil cihazlardan gelir. Turkcell 5G ile gecikme milisaniyeler seviyesine iner ve indirme hızı kat kat artar. Mobil testte en doğru sonuç için 5G kapsama alanında, 5G uyumlu cihazla ve Turkcell sunucusuyla ölçüm yapın.</p>
+
+      <h3>Karşılaştırma ve İstatistiklerle Performans Ölçümü</h3>
+      <p>Gerçek zamanlı grafikler ve sonuçlarla internet performansınızı analiz edebilir, ping ve jitter değerlerinizle bağlantınızın kararlılığını kontrol edebilirsiniz. Mevcut hızınız yetmiyorsa 1000 Mbps'ye varan fiber veya kurulumsuz Superbox 5G paketleriyle deneyiminizi bir üst seviyeye taşıyabilirsiniz.</p>
+    </div>
+  </details>
 </div></section>
 
 <!-- ====== SSS · KÜMELENMİŞ AKORDEON (canlıdaki tüm sorular + 5G/ADSL) ====== -->
