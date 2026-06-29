@@ -154,15 +154,21 @@ section.blk{padding:30px 0}
 .fiveg ul li{padding:4px 0 4px 22px;position:relative}.fiveg ul li::before{content:"⚡";position:absolute;left:0}
 @media(max-width:820px){.fiveg{grid-template-columns:1fr}}
 
-/* FAQ */
-.faq{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+/* FAQ · kümelenmiş akordeon */
+.faq-nav{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 10px}
+.faq-nav a{background:var(--navy-card);border:1px solid var(--line);border-radius:var(--r-pill);padding:7px 14px;font-size:.8rem;font-weight:700;color:var(--ink-2);text-decoration:none}
+.faq-nav a:hover{border-color:var(--yellow);color:var(--yellow)}
+h3.cl{display:flex;align-items:center;gap:10px;margin:22px 0 10px;scroll-margin-top:80px;font-size:1.12rem}
+.cl-n{flex:none;display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 7px;border-radius:9px;background:var(--yellow);color:var(--navy);font-size:.82rem;font-weight:800}
+.faq{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--navy-2)}
 .faq details{border-top:1px solid var(--line-2)}.faq details:first-child{border-top:none}
-.faq summary{padding:14px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq summary{padding:13px 16px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--yellow);font-weight:800;font-size:1.3rem}
+.faq summary::after{content:"+";color:var(--yellow);font-weight:800;font-size:1.3rem;flex:none}
 .faq details[open] summary::after{content:"–"}
+.faq details[open] summary{color:var(--yellow)}
 .faq .ans{padding:0 16px 14px;color:var(--ink-2);font-size:.9rem}
-.faq summary:hover{background:var(--navy-2)}
+.faq summary:hover{background:var(--navy-card)}
 
 /* footer (klon: minimal + Bizi Takip Edin) */
 footer.site{background:var(--navy-3);border-top:1px solid var(--line);margin-top:22px;padding:26px 0 22px}
@@ -300,18 +306,43 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
   <p class="note-banner" id="preHint">▲ Yukarıdaki <b>GO</b> butonuna bas · test bitince bu alanda seçili varyantın dönüşüm modülü canlanır. Sağdaki/alttaki seçiciden 4 varyantı dene.</p>
 </div></section>
 
-<!-- ====== HIZ-İHTİYAÇ TABLOSU (öneri) ====== -->
+<!-- ====== KARŞILAŞTIRMA TABLOLARI (Turkcell'de olmayan · rapordan) ====== -->
 <section class="blk"><div class="wrap">
-  <div class="eyebrow">Yeni öneri</div>
-  <h2>Hangi hız <span class="y">hangi kullanıma</span> yeter?</h2>
-  <p class="desc">Her satır ilgili Turkcell pakete bağlanır; bilgilendirici içerik doğrudan dönüşüm yoluna döner.</p>
+  <div class="eyebrow">Yeni · Turkcell'de olmayan</div>
+  <h2>Karşılaştırma <span class="y">tabloları</span></h2>
+  <p class="desc">Rakiplerde olan, Turkcell'de olmayan yapısal tablolar. Hem kullanıcıya yol gösterir hem "internet hızı kaç olmalı" aramalarını karşılar; her satır ilgili Turkcell pakete bağlanır.</p>
+
+  <h3>Hangi hız hangi kullanıma yeter?</h3>
   <div class="table-scroll"><table class="tbl">
     <thead><tr><th>Hız</th><th>İdeal kullanım</th><th>10 GB indirme</th><th>Paket</th></tr></thead>
     <tbody>
-      <tr><td>16–24 Mbps</td><td>E-posta, web, bankacılık</td><td>~1 saat</td><td><a href="#">Fiber'e geç →</a></td></tr>
-      <tr><td>35–50 Mbps</td><td>Full HD yayın, video görüşme</td><td>~27 dk</td><td><a href="#">Fiber 50 →</a></td></tr>
-      <tr><td>100 Mbps</td><td>4K yayın + online oyun, çok cihaz</td><td>~13 dk</td><td><a href="#">Fiber 100 →</a></td></tr>
+      <tr><td>16–24 Mbps</td><td>E-posta, web, sosyal medya, bankacılık</td><td>~1 saat</td><td><a href="#">Fiber'e geç →</a></td></tr>
+      <tr><td>35–50 Mbps</td><td>Full HD yayın, video görüşme, tek-iki cihaz</td><td>~27 dk</td><td><a href="#">Fiber 50 →</a></td></tr>
+      <tr><td>100 Mbps</td><td>4K yayın + online oyun, çok cihazlı ev</td><td>~13 dk</td><td><a href="#">Fiber 100 →</a></td></tr>
       <tr><td>1000 Mbps</td><td>Yayıncılık, beklemesiz indirme, kalabalık ev</td><td>~1,5 dk</td><td><a href="#">Fiber 1000 →</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>İndirme süresi: hızınıza göre ne kadar sürer?</h3>
+  <div class="table-scroll"><table class="tbl">
+    <thead><tr><th>İçerik</th><th>16 Mbps</th><th>100 Mbps</th><th>1000 Mbps (Fiber)</th></tr></thead>
+    <tbody>
+      <tr><td>Müzik albümü (~100 MB)</td><td>~50 sn</td><td>~8 sn</td><td>~1 sn</td></tr>
+      <tr><td>HD film (~4 GB)</td><td>~34 dk</td><td>~5,5 dk</td><td>~33 sn</td></tr>
+      <tr><td>Büyük oyun (~50 GB)</td><td>~7 saat</td><td>~1,1 saat</td><td>~7 dk</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>İnternet hızı metrikleri ne anlama gelir?</h3>
+  <div class="table-scroll"><table class="tbl">
+    <thead><tr><th>Metrik</th><th>Nedir</th><th>İyi değer</th></tr></thead>
+    <tbody>
+      <tr><td>Download</td><td>İnternetten cihaza indirme hızı</td><td>Ne kadar yüksekse o kadar iyi</td></tr>
+      <tr><td>Upload</td><td>Cihazdan internete yükleme hızı</td><td>Fiber'de simetrik (eşit) avantaj</td></tr>
+      <tr><td>Ping</td><td>Gecikme süresi (ms)</td><td>&lt; 30 ms · oyunda &lt; 10 ms</td></tr>
+      <tr><td>Jitter</td><td>Ping süresindeki dalgalanma</td><td>Düşük (&lt; 5 ms)</td></tr>
+      <tr><td>Packet Loss</td><td>Ulaşamayan veri paketi oranı</td><td>%0'a yakın</td></tr>
+      <tr><td>Mbps</td><td>Hız birimi (saniyede megabit)</td><td>8 Mbps ≈ 1 MB/sn</td></tr>
     </tbody>
   </table></div>
 </div></section>
@@ -352,20 +383,83 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
   </div>
 </div></section>
 
-<!-- ====== FAQ (klon + FAQPage schema önerisi) ====== -->
+<!-- ====== SSS · KÜMELENMİŞ AKORDEON (canlıdaki tüm sorular + 5G/ADSL) ====== -->
 <section class="blk"><div class="wrap">
-  <div class="eyebrow">FAQPage schema ile işaretlenmeli (+★)</div>
-  <h2>Sıkça Sorulan Sorular</h2>
-  <div class="faq">
-    <details open><summary>İnternet hız testi (speed test) nedir?</summary><div class="ans">Hız testi; bağlantının download (indirme), upload (yükleme) ve ping (gecikme) sürelerini ölçen, bağlantı kalitesini saniyeler içinde raporlayan bir araçtır.</div></details>
-    <details><summary>5G ile ping değeri ne kadar düşer?</summary><div class="ans">5G ile gecikme milisaniyeler seviyesine iner; online oyun ve canlı yayında kesintisiz deneyim sağlar.</div></details>
-    <details><summary>Mobil veri ile Wi-Fi hız testi arasındaki fark neden büyük olabilir?</summary><div class="ans">Baz istasyonu uzaklığı, kapalı alan, cihaz modem çip seti ve anlık şebeke trafiği mobil sonucu etkiler.</div></details>
-    <details><summary>Hız testi ücretli mi?</summary><div class="ans">Hayır, hız testi ücretsizdir. Mobil ağda test, internet paketinizden veri tüketir.</div></details>
-    <details><summary>İdeal internet hızı kaç Mbps olmalı?</summary><div class="ans">Kullanıma göre değişir: 16–24 Mbps temel, 50 Mbps oyun, 100 Mbps+ 4K ve çok cihaz, 1000 Mbps yayıncılık için idealdir.</div></details>
+  <div class="eyebrow">FAQPage şeması ile işaretlenir</div>
+  <h2>Hız Testi Rehberi &amp; <span class="y">Sıkça Sorulan Sorular</span></h2>
+  <p class="desc">Canlı sayfadaki tüm sorular konu başlıklarına ayrıldı; uzun açık metin yerine açılır-kapanır gelir. 5G, ADSL ve mobil sorular eklendi.</p>
+  <div class="faq-nav">
+    <a href="#f1">Nedir &amp; Neden</a><a href="#f2">Nasıl Yapılır</a><a href="#f3">Metrikler</a>
+    <a href="#f4">İdeal Hız</a><a href="#f5">Sorun Giderme</a><a href="#f6">Mobil &amp; 5G</a>
   </div>
-  <div class="lead" style="margin-top:18px;text-align:center">
-    <div class="reco" style="font-weight:800;font-size:1.4rem">Testin bitti. Şimdi geleceğin hızını keşfetme zamanı.</div>
-    <p style="color:var(--ink-2)">Sana en uygun Turkcell internetini birlikte bulalım.</p>
+
+  <h3 id="f1" class="cl"><span class="cl-n">1</span> Hız Testi Nedir &amp; Neden Önemli</h3>
+  <div class="faq">
+    <details><summary>Hız testi nedir?</summary><div class="ans">İnternet bağlantınızın indirme (download), yükleme (upload) ve gecikme (ping) hızını saniyeler içinde ölçen ücretsiz bir araçtır.</div></details>
+    <details><summary>İnternet hız testi (speed test) nedir?</summary><div class="ans">Cihazınız ile bir sunucu arasında veri alışverişi yaparak bağlantınızın gerçek hızını ve kalitesini raporlayan testtir.</div></details>
+    <details><summary>İnternet hız testi nasıl çalışır?</summary><div class="ans">Test, sunucuya küçük dosyalar gönderip indirerek download/upload hızını ve ping süresini ölçer.</div></details>
+    <details><summary>Bağlantı hızını neden test etmelisin?</summary><div class="ans">Aldığınız hızın taahhüt edilen hıza yakın olup olmadığını ve bağlantı kalitenizi görmek için.</div></details>
+    <details><summary>İnternet hız testi güvenilir mi?</summary><div class="ans">Doğru sunucu seçilip arka plan uygulamaları kapatıldığında güvenilirdir; tek ölçüm yerine birkaç kez tekrarlamak önerilir.</div></details>
+    <details><summary>Hız testi ücretli mi?</summary><div class="ans">Hayır, ücretsizdir. Yalnızca mobil ağda yapılan test internet paketinizden veri tüketir.</div></details>
+  </div>
+
+  <h3 id="f2" class="cl"><span class="cl-n">2</span> Hız Testi Nasıl Yapılır &amp; Doğru Ölçüm</h3>
+  <div class="faq">
+    <details><summary>İnternet hız testi nasıl yapılır?</summary><div class="ans">"GO / Başlat" butonuna basın; test indirme, yükleme ve ping değerlerini otomatik ölçer.</div></details>
+    <details><summary>İnternet hızı nasıl ölçülür?</summary><div class="ans">Sunucuyla veri alışverişi süresi ölçülerek saniyedeki megabit (Mbps) cinsinden hesaplanır.</div></details>
+    <details><summary>İnternet indirme hızı nasıl ölçülür?</summary><div class="ans">Sunucudan cihazınıza dosya indirilirken birim zamanda aktarılan veri miktarı ölçülür.</div></details>
+    <details><summary>İnternet hat hızını nasıl öğrenebilirsin?</summary><div class="ans">Hız testi yaparak veya Turkcell hesabınızdan mevcut tarife hızınızı görerek öğrenebilirsiniz.</div></details>
+    <details><summary>Hız testi öncesinde nelere dikkat edilmeli?</summary><div class="ans">Diğer cihazların bağlantısını kesin, açık indirmeleri durdurun, mümkünse Ethernet kablosu kullanın.</div></details>
+    <details><summary>En doğru hız testini nasıl yaparım?</summary><div class="ans">Kablolu bağlantı, Turkcell sunucusu ve tek cihaz ile, testi birkaç kez tekrarlayarak.</div></details>
+    <details><summary>Wi-Fi ile hız testi yapabilir miyim?</summary><div class="ans">Evet; ancak Wi-Fi sinyali ve mesafe sonucu etkiler. En doğru sonuç Ethernet ile alınır.</div></details>
+    <details><summary>Hız testi yaparken nelere dikkat etmeliyim?</summary><div class="ans">Arka plan uygulamalarını kapatın ve doğru sonuç için Turkcell sunucusunu seçin.</div></details>
+  </div>
+
+  <h3 id="f3" class="cl"><span class="cl-n">3</span> Metrikler &amp; Sonuçlar</h3>
+  <div class="faq">
+    <details><summary>İnternet hız testi sonuçları ne anlama gelir?</summary><div class="ans">Download indirme, upload yükleme, ping ise gecikme hızınızı gösterir. Yüksek download/upload ve düşük ping iyidir.</div></details>
+    <details><summary>İnternet hız testinde neye bakılır?</summary><div class="ans">Öncelikle download, ardından upload ve ping/jitter değerlerine bakılır.</div></details>
+    <details><summary>İnternet hızı metrikleri nelerdir?</summary><div class="ans">Download, Upload, Ping, Jitter ve Packet Loss başlıca metriklerdir (üstteki tabloya bakın).</div></details>
+    <details><summary>Mbps nedir?</summary><div class="ans">Saniyede megabit; internet hızının birimidir. 8 Mbps yaklaşık 1 MB/saniye demektir.</div></details>
+    <details><summary>Ping nedir?</summary><div class="ans">Verinin gidip gelme gecikmesidir (ms). Oyun ve görüşmede düşük olması önemlidir.</div></details>
+    <details><summary>Download ve upload nedir?</summary><div class="ans">Download internetten cihaza indirme, upload cihazdan internete yükleme hızıdır.</div></details>
+    <details><summary>Packet loss nedir?</summary><div class="ans">Hedefe ulaşamayan veri paketlerinin oranıdır; yüksekse kesinti ve takılma yaşanır.</div></details>
+    <details><summary>Jitter nedir?</summary><div class="ans">Ping süresindeki dalgalanmadır; düşük olması kararlı bir bağlantı anlamına gelir.</div></details>
+  </div>
+
+  <h3 id="f4" class="cl"><span class="cl-n">4</span> İdeal Hız (Kaç Mbps Olmalı)</h3>
+  <div class="faq">
+    <details><summary>İnternet hızı kaç olmalıdır?</summary><div class="ans">Kullanıma göre 16-1000 Mbps arasında değişir; "Hangi hız hangi kullanıma yeter" tablosuna bakın.</div></details>
+    <details><summary>İdeal internet hızı kaç Mbps olmalı?</summary><div class="ans">Temel kullanımda 16-24 Mbps; 4K yayın ve oyun için 100 Mbps ve üzeri idealdir.</div></details>
+    <details><summary>En yüksek internet hızı kaç Mbps olmalı?</summary><div class="ans">Fiber'de 1000 Mbps'ye kadar çıkar; yayıncılık ve kalabalık ev için en uygunudur.</div></details>
+    <details><summary>Download ve upload hızı kaç olmalı?</summary><div class="ans">İhtiyaca göre değişir; fiber bağlantıda eşit (simetrik) download/upload büyük avantajdır.</div></details>
+  </div>
+
+  <h3 id="f5" class="cl"><span class="cl-n">5</span> Sorun Giderme &amp; Hızlandırma</h3>
+  <div class="faq">
+    <details><summary>İnternet hızım neden düşük çıkıyor?</summary><div class="ans">Wi-Fi mesafesi, eski modem, çok sayıda cihaz, arka plan indirmeleri veya altyapı nedeniyle olabilir.</div></details>
+    <details><summary>İnternet hızımı yavaşlatan uygulamalar nelerdir?</summary><div class="ans">Bulut yedekleme, otomatik güncellemeler, torrent ve arka planda video akışı bant genişliğini tüketir.</div></details>
+    <details><summary>Hız testi hangi faktörlerden etkilenir?</summary><div class="ans">Seçilen sunucu, bağlantı türü, cihaz, Wi-Fi sinyali ve şebeke yoğunluğu sonucu etkiler.</div></details>
+    <details><summary>Hız testi sonucu neden değişkenlik gösterir?</summary><div class="ans">Şebeke yoğunluğu, sunucu ve anlık kullanım nedeniyle sonuç gün içinde değişebilir.</div></details>
+    <details><summary>Farklı cihazlarda sonuçlar neden farklı?</summary><div class="ans">Cihazların Wi-Fi/işlemci kapasitesi ve modem desteği farklı olduğu için sonuçlar değişir.</div></details>
+    <details><summary>İnternet nasıl hızlandırılır?</summary><div class="ans">Modemi yenileyin, Ethernet kullanın, cihaz sayısını azaltın; kalıcı çözüm daha yüksek hızlı bir Turkcell pakete geçmektir.</div></details>
+  </div>
+
+  <h3 id="f6" class="cl"><span class="cl-n">5G</span> Mobil &amp; 5G Hız Testi</h3>
+  <div class="faq">
+    <details><summary>5G nedir?</summary><div class="ans">Düşük gecikme ve çok yüksek hız sunan yeni nesil mobil internet teknolojisidir.</div></details>
+    <details><summary>5G'nin faydaları neler?</summary><div class="ans">Saniyeler içinde indirme, kesintisiz 4K yayın ve oyun, milisaniye seviyesinde gecikme.</div></details>
+    <details><summary>4.5G SIM kartım 5G'yi destekler mi?</summary><div class="ans">5G için 5G uyumlu SIM ve cihaz gerekir; eski SIM kart hızı sınırlayabilir.</div></details>
+    <details><summary>5G ile ping ne kadar düşer?</summary><div class="ans">Gecikme milisaniyeler seviyesine iner; oyun ve canlı yayında belirgin fark yaratır.</div></details>
+    <details><summary>5G hız testinde nelere dikkat edilir?</summary><div class="ans">5G kapsama alanında, 5G uyumlu cihazla ve Turkcell sunucusuyla test edin.</div></details>
+    <details><summary>Mobil veri ile Wi-Fi farkı neden büyük olabilir?</summary><div class="ans">Baz istasyonu uzaklığı, kapalı alan ve cihazın modem çip seti mobil sonucu etkiler.</div></details>
+    <details><summary>ADSL hız testi nasıl yapılır?</summary><div class="ans">Aynı araçla yapılır; ADSL'de hız fiber'e göre düşüktür, hat mesafesi ve kalitesi etkiler.</div></details>
+    <details><summary>ADSL ile fiber hız farkı nedir?</summary><div class="ans">Fiber çok daha yüksek, kararlı hız ve düşük gecikme sunar; uzun vadede fiber/5G önerilir.</div></details>
+  </div>
+
+  <div class="lead" style="margin-top:20px;text-align:center">
+    <div class="reco" style="font-weight:800;font-size:1.4rem">Testin bitti. Şimdi sana en uygun hızı bulalım.</div>
+    <p style="color:var(--ink-2)">Sonucuna göre en uygun Turkcell internetini birlikte seçelim.</p>
     <a class="btn btn-y btn-lg" href="#lead" style="margin-top:10px">Bana Uygun Paketi Bul →</a>
   </div>
 </div></section>
