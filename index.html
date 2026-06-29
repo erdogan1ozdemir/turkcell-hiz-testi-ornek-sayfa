@@ -182,6 +182,12 @@ h3.cl{display:flex;align-items:center;gap:10px;margin:22px 0 10px;scroll-margin-
 .readmore[open]>summary::after{content:"▴"}
 .readmore[open]>summary{margin-bottom:10px}
 .readmore .more{border-top:1px solid var(--line-2);padding-top:6px}
+.content-block a,.faq .ans a{color:var(--yellow);text-decoration:underline;text-underline-offset:2px;font-weight:600}
+.fnav{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding:4px 0 22px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.fnav h4{font-size:.78rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;margin:0 0 10px}
+.fnav a{display:block;color:var(--ink-2);text-decoration:none;font-size:.88rem;padding:5px 0}
+.fnav a:hover{color:var(--yellow)}
+@media(max-width:720px){.fnav{grid-template-columns:repeat(2,1fr);gap:14px}}
 
 /* footer (klon: minimal + Bizi Takip Edin) */
 footer.site{background:var(--navy-3);border-top:1px solid var(--line);margin-top:22px;padding:26px 0 22px}
@@ -417,19 +423,19 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
       <p>Hız testi, cihazınız ile sunucu arasında veri alışverişi yaparak hızınızı saniyedeki megabit (Mbps) cinsinden hesaplar. En doğru sonuç için kablolu (Ethernet) bağlantı kullanın, Turkcell sunucusunu seçin, arka plan uygulamalarını kapatın ve testi birkaç kez tekrarlayın.</p>
 
       <h3>Turkcell İnternet Hız Testinin Sağladığı Avantajlar Nelerdir?</h3>
-      <p>Turkcell ev interneti hız testi, kesin ve hızlı sonuçlar vererek altyapı performansını kontrol etmenizi ve potansiyel bağlantı sorunlarını tespit etmenizi sağlar. İnternet testi sonuçlarına göre hızınızın yetersiz olduğunu düşünüyorsanız, altyapınızın desteklediği maksimum kapasiteyi öğrenmek için altyapı sorgulama yapabilirsiniz.</p>
-      <p>Altyapınız uygunsa, çok daha yüksek hızlar sunan fiber internet paketlerine geçişi değerlendirebilirsiniz. Bağlantı hızı testi sonuçları, modem yerleşimini optimize etmeniz ve interneti daha verimli kullanmanız için size rehberlik eder.</p>
+      <p>Turkcell ev interneti hız testi, kesin ve hızlı sonuçlar vererek altyapı performansını kontrol etmenizi ve potansiyel bağlantı sorunlarını tespit etmenizi sağlar. İnternet testi sonuçlarına göre hızınızın yetersiz olduğunu düşünüyorsanız, altyapınızın desteklediği maksimum kapasiteyi öğrenmek için <a href="https://www.turkcell.com.tr/altyapi-sorgulama" target="_blank" rel="noopener">altyapı sorgulama</a> yapabilirsiniz.</p>
+      <p>Altyapınız uygunsa, çok daha yüksek hızlar sunan <a href="https://www.turkcell.com.tr/fiber-internet" target="_blank" rel="noopener">fiber internet paketlerine</a> geçişi değerlendirebilirsiniz. Bağlantı hızı testi sonuçları, modem yerleşimini optimize etmeniz ve interneti daha verimli kullanmanız için size rehberlik eder.</p>
 
       <h3>Tüm Cihazlardan Kolay Erişim ve Kullanım İmkanı</h3>
       <p>Turkcell online hız testi, çevrim içi bir hizmet olduğu için herhangi bir uygulama indirme zorunluluğu olmaksızın bilgisayar, akıllı telefon ve tablet gibi farklı cihazlardan kolaylıkla erişilebilir. Kullanıcılar, mobil internet hız testini internet tarayıcıları üzerinden başlatarak bağlantı hızlarını seri bir şekilde sorgulayabilir.</p>
       <p>Turkcell internet hız testi sorgulama hizmetinin kullanıcı dostu arayüzü sayesinde kolayca ihtiyaçlarınıza uygun internet hizmetini tercih edebilirsiniz. İster WiFi test yapın ister kablolu bağlantınızı ölçün, tek bir tıklama ile ADSL test veya fiber ölçümlerinizi gerçekleştirebilirsiniz.</p>
 
       <h3>Mobil ve 5G Hız Testi</h3>
-      <p>Hız testi aramalarının büyük kısmı mobil cihazlardan gelir. Turkcell 5G ile gecikme milisaniyeler seviyesine iner ve indirme hızı kat kat artar. Mobil testte en doğru sonuç için 5G kapsama alanında, 5G uyumlu cihazla ve Turkcell sunucusuyla ölçüm yapın.</p>
+      <p>Hız testi aramalarının büyük kısmı mobil cihazlardan gelir. <a href="https://www.turkcell.com.tr/5g" target="_blank" rel="noopener">Turkcell 5G</a> ile gecikme milisaniyeler seviyesine iner ve indirme hızı kat kat artar. Mobil testte en doğru sonuç için 5G kapsama alanında, 5G uyumlu cihazla ve Turkcell sunucusuyla ölçüm yapın.</p>
 
       <h3>Karşılaştırma ve İstatistikler ile İnternet Performansının Ölçümü</h3>
       <p>Gerçek internet hız testi, gerçek zamanlı grafikler ve test sonuçları sunarak kullanıcılara internet performansını analiz etme imkanı tanır. Modem hız testi ile farklı bağlantı türlerinde yapılan ölçümler, siz kullanıcılara en doğru sonuçları sunmak için optimize edilir. Özellikle speed test MBPS ve ping testi verileriyle bağlantınızın kararlılığı kontrol edilebilir.</p>
-      <p>Mevcut hızınız size yetmiyorsa 1000 MBPS internet gibi ultra yüksek hızlı paketlerimizi inceleyebilir veya bütçe dostu bir seçenek olan 200 MBPS internet tarifelerimizle deneyiminizi bir üst seviyeye taşıyabilirsiniz.</p>
+      <p>Mevcut hızınız size yetmiyorsa <a href="https://www.turkcell.com.tr/fiber-internet" target="_blank" rel="noopener">1000 MBPS internet</a> gibi ultra yüksek hızlı paketlerimizi inceleyebilir veya bütçe dostu bir seçenek olan <a href="https://www.turkcell.com.tr/ev-interneti" target="_blank" rel="noopener">200 MBPS internet tarifelerimizle</a> deneyiminizi bir üst seviyeye taşıyabilirsiniz.</p>
 
       <h3>Turkcell Hız Testi ile Bağlantınızı Test Edin, İnternetinizi Güçlendirin!</h3>
       <p>Turkcell speed test, internet bağlantınızın kalitesini kolaylıkla ölçmenize olanak sağlar. Gerçek zamanlı grafikler ve istatistiklerle internet performansınızı ölçebilir, ping değerlerinizi kontrol edebilirsiniz. Tüm cihazlardan kolay erişim imkanı sunan bu speed test ile bağlantınızın kalitesini ölçerek internet hızını kontrol edin ve gerekli önlemleri alarak internet performansınızı güçlendirin!</p>
@@ -485,7 +491,7 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
 
   <h3 id="f4" class="cl"><span class="cl-n">4</span> İdeal Hız (Kaç Mbps Olmalı)</h3>
   <div class="faq">
-    <details><summary>İnternet Hızı Kaç Olmalıdır?</summary><div class="ans">Kullanım amacına göre değişiyor: E-posta ve haberler için 16-24 Mbps yeterliyken, 4K video ve büyük indirmeler için daha yüksek hızlar gerekiyor. İhtiyacınıza uygun seçenekleri ev interneti sayfamızdan inceleyebilirsiniz.</div></details>
+    <details><summary>İnternet Hızı Kaç Olmalıdır?</summary><div class="ans">Kullanım amacına göre değişiyor: E-posta ve haberler için 16-24 Mbps yeterliyken, 4K video ve büyük indirmeler için daha yüksek hızlar gerekiyor. İhtiyacınıza uygun seçenekleri <a href="https://www.turkcell.com.tr/ev-interneti" target="_blank" rel="noopener">ev interneti sayfamızdan</a> inceleyebilirsiniz.</div></details>
     <details><summary>İdeal İnternet Hızı Kaç Mbps (Mbit) Olmalı?</summary><div class="ans">Çok kullanıcılı evler için en az 50-100 Mbps arası ideal kabul ediliyor. Aynı anda oyun oynanan ve video izlenen evlerde fiber altyapı destekli 100 Mbps ve üzeri öneriliyor.</div></details>
     <details><summary>En Yüksek İnternet Hızı Kaç Mbps Olmalı?</summary><div class="ans">Fiber altyapılarla ev kullanıcıları 1000 Mbps (1 Gigabit) hıza ulaşabiliyor. Bu hız, profesyonel kullanım, yayıncılık ve beklemesiz indirme işlemleri için mükemmel bir deneyim sunuyor.</div></details>
     <details><summary>Download ve Upload Hızı Kaç Olmalı?</summary><div class="ans">Standart ev kullanıcıları için download 35-100 Mbps, upload ise 5-10 Mbps arası yeterli görülüyor. Yayıncılar ve içerik üreticileri için daha yüksek upload hızları gerekiyor.</div></details>
@@ -524,6 +530,37 @@ body[data-variant="c"] [data-only~="c"],body[data-variant="d"] [data-only~="d"]{
 
 <!-- ====== KLON KABUK: FOOTER (minimal + Bizi Takip Edin) ====== -->
 <footer class="site"><div class="wrap">
+  <!-- Önerilen iç bağlantılar · anchor text + Turkcell içi hedef (superonline.net yerine site içi tutar) -->
+  <nav class="fnav" aria-label="Site bağlantıları">
+    <div>
+      <h4>Ev İnterneti</h4>
+      <a href="https://www.turkcell.com.tr/ev-interneti" target="_blank" rel="noopener">Ev İnterneti</a>
+      <a href="https://www.turkcell.com.tr/fiber-internet" target="_blank" rel="noopener">Fiber İnternet</a>
+      <a href="https://www.turkcell.com.tr/superbox" target="_blank" rel="noopener">Superbox 5G</a>
+      <a href="https://www.turkcell.com.tr/ev-interneti/kampanyalar" target="_blank" rel="noopener">Ev İnterneti Kampanyaları</a>
+    </div>
+    <div>
+      <h4>Hız &amp; Araçlar</h4>
+      <a href="https://www.turkcell.com.tr/hiz-testi" target="_blank" rel="noopener">İnternet Hız Testi</a>
+      <a href="https://www.turkcell.com.tr/internet-ping-testi" target="_blank" rel="noopener">Ping Testi</a>
+      <a href="https://www.turkcell.com.tr/altyapi-sorgulama" target="_blank" rel="noopener">Altyapı Sorgulama</a>
+      <a href="https://www.turkcell.com.tr/ip-sorgulama" target="_blank" rel="noopener">IP Sorgulama</a>
+    </div>
+    <div>
+      <h4>Cihaz &amp; Servis</h4>
+      <a href="https://www.turkcell.com.tr/modem" target="_blank" rel="noopener">Modem / Router</a>
+      <a href="https://www.turkcell.com.tr/tv-plus" target="_blank" rel="noopener">TV+</a>
+      <a href="https://www.turkcell.com.tr/mobil/tarifeler" target="_blank" rel="noopener">Mobil Tarifeler</a>
+      <a href="https://www.turkcell.com.tr/yeni-hat" target="_blank" rel="noopener">Yeni Hat Al</a>
+    </div>
+    <div>
+      <h4>Destek</h4>
+      <a href="https://www.turkcell.com.tr/yardim" target="_blank" rel="noopener">Yardım &amp; Destek</a>
+      <a href="https://www.turkcell.com.tr/destek/internet" target="_blank" rel="noopener">İnternet Sorun Giderme</a>
+      <a href="https://www.turkcell.com.tr" target="_blank" rel="noopener">Online İşlemler</a>
+      <a href="https://www.turkcell.com.tr/blog" target="_blank" rel="noopener">Turkcell Blog</a>
+    </div>
+  </nav>
   <div class="frow">
     <a class="brand" href="#" style="font-size:1.05rem"><span class="dot">T</span> Turkcell</a>
     <div>
